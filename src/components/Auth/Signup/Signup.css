@@ -1,0 +1,101 @@
+
+
+.Signup, .signUpOne, .signUpTwo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.signUpOne, .signUpTwo {
+    width: 60%;
+    height: 100vh;
+}
+
+.signUpOne {
+    background-color: #10ad5e;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    border-radius: 99% 95% 100% 0% / 0% 99% 100% 51%;
+}
+
+.signUpOne h1 {
+    text-transform: capitalize;
+}
+
+.signUpOne img {
+    width: 40%;
+}
+
+.signUpTwo {
+    width: 40%;
+    padding-top: 2%;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #10ad5e;
+}
+
+.signUpTwo h2 {
+    color: black;
+    margin: 10% 0 0;
+    align-self: flex-start;
+}
+
+.signUpTwo form {
+    width: 80%;
+}
+
+.signUpTwo img {
+    width: 20%;
+    margin: auto;
+}
+
+.signUpTwo form div {
+    position: relative;
+    width: 100%;
+    height: 35px;
+    margin: 5% 0;
+}
+
+.signUpTwo .loginIcon {
+    color: #10ad5e;
+    position: absolute;
+    top: 25%;
+    left: 2%;
+}
+
+.signUpTwo form input {
+    border: 1px solid gainsboro;
+    padding-left: 10%;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.signUpTwo form button {
+    margin: 5% auto;
+    padding: 3%;
+    color: white;
+    background-color: #10ad5e;
+    font-weight: 600;
+}
+
+.signUpTwo form button:hover {
+    border: 1px solid #10ad5e;
+    background-color: transparent;
+    color: #10ad5e;
+}
+
+.signUpTwo p {
+    font-weight: 500;
+    color: black;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.signUpTwo p span {
+    color: #10ad5e;
+    text-decoration: underline;
+    cursor: pointer;
+}
