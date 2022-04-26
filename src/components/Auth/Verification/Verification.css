@@ -1,0 +1,72 @@
+
+.vLayout {
+    width: 100%;
+}
+
+.vLayoutUI {
+    background-color: white;
+    padding: 5%;
+    width: 50%;
+    height: 75vh;
+    margin: 10vh auto;
+    border-radius: 10px;
+    border: 1px solid #ab90f7;
+    text-align: center;
+}
+
+.vLayoutUI img {
+    margin: auto;
+    width: 20%;
+    padding: 2%;
+    border-radius: 5px;
+}
+
+.vLayoutUI .vText {
+    margin: 5% 0;
+}
+
+.vLayoutUI .otpBoxes {
+    width: 100%;
+    margin: 10% auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vLayoutUI .verifyBtns {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.verifyBtns .resendUI {
+    width: 75%;
+    margin: 2% auto;
+
+}
+
+.verifyBtns .verify, .verifyBtns button {
+    padding: 2%;
+    width: 50%;
+    background-color: #ab90f7;
+    text-align: center;
+    margin: 3% auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.verifyBtns button {
+    background-color: white;
+    border: 1px solid #ab90f7;
+}
+.verifyBtns button:disabled {
+    cursor: not-allowed;
+}
+
+@media (max-width: 425px) {
+    .vLayoutUI {
+        width: 90%;
+    }
+}

@@ -14,6 +14,8 @@ img {
 }
 
 button {
+  display: block;
+  font-weight: 500;
   padding: 3%;
   transition: .3s;
   width: 100%;
@@ -23,6 +25,8 @@ button {
   cursor: pointer;
 }
 
-input {
+input, select, textarea {
+  height: 35px;
+  border-radius: 10px;
   caret-color: #10ad5e;
 }

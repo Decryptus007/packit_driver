@@ -1,4 +1,6 @@
-
+.Signup {
+    position: relative;
+}
 
 .Signup, .signUpOne, .signUpTwo {
     display: flex;

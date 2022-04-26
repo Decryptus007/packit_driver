@@ -1,0 +1,70 @@
+/* SECOND STAGE STYLINGS */
+
+.sndStage {
+    width: 50vw;
+    margin: 2% auto;
+}
+
+.sndStage img {
+    width: 25%;
+    margin: 0 auto 5%;
+}
+
+.sndStage form {
+    padding: 5% 5% 1%;
+    background-color: ghostwhite;
+    border-radius: 20px;
+}
+
+.sndStage form h3 {
+    padding: 2% 0;
+    border-bottom: 2px solid grey;
+    margin: 2% 0 5%;
+}
+
+.sndStage form h3 span {
+    color: #10ad5e;
+}
+
+.sndStage input, .sndStage select, .sndStage textarea {
+    border: 1px solid gainsboro;
+    background-color: white;
+    display: block;
+    width: 100%;
+    padding: 2%;
+    margin: 2% auto;
+}
+
+.sndStage select {
+    padding: 0 2%;
+}
+
+.sndStage textarea {
+    resize: none;
+    height: 100px;
+}
+
+.sndStage form button {
+    width: 50%;
+    background-color: #10ad5e;
+    color: white;
+    margin: 5% auto 0;
+}
+
+.sndStage form button:hover {
+    background-color: white;
+    color: #10ad5e;
+    border: 1px solid #10ad5e;
+}
+
+.backIcon {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    padding: 1%;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: ghostwhite;
+}
+
+/* END OF SECOND STAGE STYLING */
