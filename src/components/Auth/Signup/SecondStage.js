@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default function SecondStage(props) {
+const baseURL = 'https://restcountries.com/v2/regionalbloc/au'
 
+export default function SecondStage(props) {
+    const [countries, setCountries] = useState([{ name: 'Loading', flag: null }])
+
+    useEffect(() => {
+        axios.get(baseURL).then((response) => {
+            setCountries(response.data)
+        })
+    }, [])
     return (
         <div className="sndStage">
             <img src={props.imgSLogo} alt="Packit" />
@@ -10,13 +19,15 @@ export default function SecondStage(props) {
                 <h3>Fill all form <span>(compulsory)</span></h3>
                 <select value={props.country} onChange={e => props.setCountry(e.target.value)}>
                     <option value={''}>Nationality</option>
-                    <option value={'Nigeria'}>Nigeria</option>
-                    <option value={'Ghana'}>Ghana</option>
+                    {countries.map((country, id) => (
+                        <option key={id} value={country.name}>{country.name}</option>
+                    ))}
                 </select>
                 <select value={props.marital} onChange={e => props.setMarital(e.target.value)}>
                     <option value={''}>Marital Status</option>
                     <option value={'Single'}>Single</option>
                     <option value={'Married'}>Married</option>
+                    <option value={'Divorced'}>Divorced</option>
                 </select>
                 <select value={props.gender} onChange={e => props.setGender(e.target.value)}>
                     <option value={''}>Gender</option>

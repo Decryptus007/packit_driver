@@ -135,4 +135,14 @@
     .signInTwo small {
         padding: 0 2%;
     }
+
+    .signInTwo form {
+        height: auto;
+    }
+}
+
+@media (max-width: 425px) {
+    .signInTwo form {
+        width: 90%;
+    }
 }
