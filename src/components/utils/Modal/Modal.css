@@ -42,6 +42,13 @@
   padding: 2rem;
 }
 
+.info button {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  margin: 10% auto 0;
+}
+
 @media (max-width: 425px) {
   .info {
     font-size: medium;

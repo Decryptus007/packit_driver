@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function FourthStage(props) {
-    
+
     const oneImg = (<>
         <div>
             <img src={props.idVal} alt="ID" />
@@ -35,7 +35,7 @@ export default function FourthStage(props) {
         </section>
     </>)
 
-    let output
+    let output = <main className="loader">Loading...</main>
     switch (props.value) {
         case 'NatID':
             output = twoImg
@@ -66,7 +66,7 @@ export default function FourthStage(props) {
                     <option value='NIN'>NIN Slip</option>
                 </select>
                 {output}
-                <button type="submit"onClick={() => props.setFNxtPg('stage5')}>Next</button>
+                <button type="submit" onClick={() => props.setFNxtPg('stage5')}>Next</button>
             </form>
             <FontAwesomeIcon className="backIcon" icon="fa-solid fa-chevron-left" onClick={() => props.setFNxtPg('stage2')} />
         </div>

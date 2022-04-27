@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import OTPInput, { ResendOTP } from "otp-input-react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -10,7 +11,9 @@ import packit from '../../../assets/images/pack it.png'
 
 import './Verification.css'
 
-export default function Verification({ onVerify, email, setVNxtPg }) {
+export default function Verification(props) {
+    const navigate = useNavigate()
+
     const [OTP, setOTP] = useState("")
     const [showModal, setShowModal] = useState(false)
     const [modalMssg, setModalMssg] = useState("Error fetching data")
@@ -26,7 +29,7 @@ export default function Verification({ onVerify, email, setVNxtPg }) {
         if (OTP === accessCode) {
             setModalMssg("Logged In Successfully")
             setShowModal(true)
-            setVNxtPg('stage4')
+            props.setVNxtPg ? props.setVNxtPg('stage4') : props.resetPwd()
         } else if (OTP === "") {
             setModalMssg("Input your OTP code")
             setShowModal(true)
@@ -38,13 +41,13 @@ export default function Verification({ onVerify, email, setVNxtPg }) {
 
     return (
         <>
-           {showModal && <Modal onClick={tggleModal}>{modalMssg}</Modal>}
+            {showModal && <Modal onClick={tggleModal}>{modalMssg}</Modal>}
             <div className="vLayout">
                 <div className="vLayoutUI">
                     <img src={packit} alt="vLogo" />
                     <div className="vText">
                         <h3>Account Verification</h3>
-                        <p>We will send verification code to your email: <span style={{color: "#10ad5e"}}>{email}</span></p>
+                        <p>We will send verification code to your email: <span style={{ color: "#10ad5e" }}>{props.email}</span></p>
                     </div>
                     <div className="otpBoxes">
                         <OTPInput
@@ -65,7 +68,10 @@ export default function Verification({ onVerify, email, setVNxtPg }) {
                     </div>
                 </div>
             </div>
-            <FontAwesomeIcon className="backIcon" icon="fa-solid fa-chevron-left" onClick={() => setVNxtPg('stage2')} />
+            <FontAwesomeIcon className="backIcon" icon="fa-solid fa-chevron-left" onClick={() => {
+                props.setVNxtPg ? props.setVNxtPg('stage2') : navigate('/forgotpwd')
+            }
+            } />
         </>
     )
 }
