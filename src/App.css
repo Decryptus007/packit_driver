@@ -29,4 +29,5 @@ input, select, textarea {
   height: 35px;
   border-radius: 10px;
   caret-color: #10ad5e;
+  font-size: medium;
 }

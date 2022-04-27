@@ -1,13 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import packitLogo from '../../../assets/images/pack it.png'
-
 export default function SecondStage(props) {
 
     return (
         <div className="sndStage">
-            <img src={packitLogo} alt="Packit" />
+            <img src={props.imgSLogo} alt="Packit" />
             <form onSubmit={e => e.preventDefault()}>
                 <h3>Fill all form <span>(compulsory)</span></h3>
                 <select value={props.country} onChange={e => props.setCountry(e.target.value)}>

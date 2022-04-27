@@ -1,0 +1,65 @@
+.forgotPwd {
+    position: relative;
+}
+
+.forgotPwd .backIcon {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    padding: 1%;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #c5c5c5;
+}
+
+.forgotPwd img {
+    width: 15%;
+    margin: 5% auto;
+}
+
+.forgotPwd form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    margin: 2% auto;
+    border-radius: 20px;
+    background-color: ghostwhite;
+    padding: 3%;
+}
+
+.forgotPwd form input {
+    margin: 5% auto;
+    border: 1px solid #10ad5e;
+    width: 75%;
+    padding: 0 2%;
+}
+
+@media (max-width: 768px) {
+    .forgotPwd img {
+        margin: 7% auto;
+    }
+
+    .forgotPwd form {
+        width: 75vw;
+    }
+}
+
+@media (max-width: 425px) {
+    .forgotPwd .backIcon {
+        padding: 2% 3%;
+    }
+
+    .forgotPwd img {
+        margin: 10% auto;
+    }
+
+    .forgotPwd form {
+        width: 90vw;
+    }
+
+    .forgotPwd form input {
+        width: 90%;
+    }
+}

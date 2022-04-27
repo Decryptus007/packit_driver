@@ -23,15 +23,15 @@ export default function Signin() {
                     <img src={packitLogo} alt="Packit" />
                     <div>
                         <FontAwesomeIcon className="loginIcon" icon="fa-solid fa-at" />
-                        <input placeholder="Email" type={"email"} />
+                        <input placeholder="Email" type={"email"} autoComplete="true"/>
                     </div>
                     <div>
                         <FontAwesomeIcon className="loginIcon" icon="fa-solid fa-unlock" />
-                        <input placeholder="Password" type={"password"} />
+                        <input placeholder="Password" type={"password"} autoComplete="true"/>
                     </div>
                     <button type="submit">Log In</button>
                 </form>
-                <small>Forgot Password?</small>
+                <small onClick={() => navigate('/forgotpwd')}>Forgot Password?</small>
                 <p>You don't have an account? <span onClick={() => navigate('/signup')}>Create an account here</span></p>
             </div>
         </div>

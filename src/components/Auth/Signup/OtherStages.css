@@ -1,16 +1,44 @@
-/* SECOND STAGE STYLINGS */
+.backIcon {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    padding: 1%;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #c5c5c5;
+}
 
-.sndStage {
+form button {
+    width: 50%;
+    margin: 10% auto 0;
+    background-color: #10ad5e;
+    color: white;
+}
+
+form button:hover {
+    background-color: white;
+    color: #10ad5e;
+    border: 1px solid #10ad5e;
+}
+
+/* SECOND STAGE STYLINGS */
+.sndStage,
+.frthStage,
+.fifth {
     width: 50vw;
     margin: 2% auto;
 }
 
-.sndStage img {
+.sndStage img,
+.frthStage img,
+.fifth img {
     width: 25%;
     margin: 0 auto 5%;
 }
 
-.sndStage form {
+.sndStage form,
+.frthStage form,
+.fifth form {
     padding: 5% 5% 1%;
     background-color: ghostwhite;
     border-radius: 20px;
@@ -26,7 +54,9 @@
     color: #10ad5e;
 }
 
-.sndStage input, .sndStage select, .sndStage textarea {
+.sndStage input,
+.sndStage select,
+.sndStage textarea {
     border: 1px solid gainsboro;
     background-color: white;
     display: block;
@@ -45,26 +75,160 @@
 }
 
 .sndStage form button {
-    width: 50%;
-    background-color: #10ad5e;
-    color: white;
     margin: 5% auto 0;
 }
 
-.sndStage form button:hover {
-    background-color: white;
-    color: #10ad5e;
-    border: 1px solid #10ad5e;
-}
-
-.backIcon {
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    padding: 1%;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: ghostwhite;
-}
-
 /* END OF SECOND STAGE STYLING */
+
+/* FOURTH STAGE STYLING */
+.frthStage,
+.fifth {
+    margin: 5% auto;
+}
+
+.frthStage form,
+.fifth form {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.frthStage form select {
+    display: block;
+    width: 75%;
+    margin: 5% auto;
+}
+
+.frthStage form div {
+    position: relative;
+    width: 20%;
+    height: 100px;
+    padding: 2% 3%;
+    border: 1px dashed #10ad5e;
+}
+
+.frthStage form div img {
+    width: 100%;
+    height: 100%;
+}
+
+.frthStage form div .uploadIcon {
+    cursor: pointer;
+    position: absolute;
+    bottom: 25%;
+    right: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 50%;
+    height: 50%;
+    color: white;
+    background-color: #10ad5e;
+    z-index: 1;
+}
+
+.frthStage form section {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    height: 120px;
+}
+
+.frthStage form section div {
+    width: 30%;
+    height: 100%;
+}
+
+.frthStage form section div small {
+    display: block;
+    text-align: center;
+}
+
+/* END OF FOURTH STAGE STYLING */
+
+/* FIFTH STAGE STYLING */
+.fifth form {
+    justify-content: space-evenly;
+}
+
+.fifth form div {
+    width: 210px;
+    height: 210px;
+    position: relative;
+    border-radius: 50%;
+}
+
+.fifth form img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.fifth form .profImgUp {
+    position: absolute;
+    cursor: pointer;
+    border-radius: 50%;
+    bottom: 5%;
+    right: 0;
+    padding: 5% 6%;
+    background-color: #10ad5e;
+    color: white;
+}
+
+/* END OF FIFTH STAGE STYLING */
+
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+
+    .sndStage,
+    .frthStage,
+    .fifth {
+        width: 60vw;
+    }
+
+    .frthStage,
+    .fifth {
+        width: 75vw;
+    }
+
+    .fifth form div {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 425px) {
+    form button {
+        width: 75%;
+    }
+
+    .backIcon {
+        padding: 2% 3%;
+        top: 3%;
+    }
+
+    .sndStage,
+    .frthStage,
+    .fifth {
+        width: 90vw;
+        margin: 10% auto 0;
+    }
+
+    .frthStage form select {
+        width: 90%;
+    }
+
+    .frthStage form section {
+        width: 90%;
+        height: 80px;
+    }
+
+    .frthStage form div {
+        width: 35%;
+    }
+}

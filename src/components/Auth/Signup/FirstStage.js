@@ -43,7 +43,7 @@ export default function FirstStage(props) {
                         <FontAwesomeIcon className="loginIcon" icon="fa-solid fa-unlock" />
                         <input placeholder="Confirm password" type={"password"} value={props.cpwd} onChange={(e) => props.setCpwd(e.target.value)}/>
                     </div>
-                    <button type="submit" onClick={() => props.setNxtPg('stage2')}>Continue Registration</button>
+                    <button style={{width: "100%"}} type="submit" onClick={() => props.setNxtPg('stage2')}>Continue Registration</button>
                 </form>
                 <p>You already have an account? <span onClick={() => navigate('/')}>Login here</span></p>
             </div>

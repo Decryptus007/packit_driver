@@ -3,9 +3,15 @@ import React, { useState } from "react";
 import FirstStage from "./FirstStage";
 import SecondStage from "./SecondStage";
 import VerifyPg from "../Verification/Verification"
+import FourthStage from "./FourthStage";
+import FifthStage from "./FifthStage";
 
 import './Signup.css'
 import './OtherStages.css'
+
+import packitLogo from '../../../assets/images/pack it.png'
+import ID from '../../../assets/images/defaultId.png'
+import profileImg from '../../../assets/images/profileImg.png'
 
 export default function Signup() {
     const [pgValue, setPgvalue] = useState('stage1')
@@ -24,6 +30,14 @@ export default function Signup() {
     const [gender, setGender] = useState('')
     const [altPhone, setAltphone] = useState('')
     const [address, setAddress] = useState('')
+
+    // [STAGE FOUR]
+    const [value, setValue] = useState('')
+    const [idVal, setIdval] = useState(ID)
+    const [idVal2, setIdval2] = useState(ID)
+
+    //STAGE FIVE [PROFILE PIC]
+    const [profilePic, setProfpic] = useState(profileImg)
 
     let output
     function nextForm(param) {
@@ -48,6 +62,7 @@ export default function Signup() {
 
             case 'stage2':
                 output = (<SecondStage
+                    imgSLogo={packitLogo}
                     country={country}
                     setCountry={(e) => setCountry(e)}
                     marital={marital}
@@ -63,7 +78,29 @@ export default function Signup() {
                 break;
 
             case 'stage3':
-                output = <VerifyPg setVNxtPg={(e) => setPgvalue(e)} />
+                output = <VerifyPg setVNxtPg={(e) => setPgvalue(e)} email={email} />
+                break;
+
+            case 'stage4':
+                output = (<FourthStage
+                    imgFLogo={packitLogo}
+                    idVal={idVal}
+                    setIdval={e => setIdval(e)}
+                    idVal2={idVal2}
+                    setIdval2={e => setIdval2(e)}
+                    value={value}
+                    setValue={e => setValue(e)}
+                    setFNxtPg={(e) => setPgvalue(e)}
+                />)
+                break;
+
+            case 'stage5':
+                output = <FifthStage
+                    imgFiLogo={packitLogo}
+                    profilePic={profilePic}
+                    setProfpic={e => setProfpic(e)}
+                    setFiNxtPg={e => setPgvalue(e)}
+                />
                 break;
 
             default:

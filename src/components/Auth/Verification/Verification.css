@@ -10,7 +10,7 @@
     height: 75vh;
     margin: 10vh auto;
     border-radius: 10px;
-    border: 1px solid #ab90f7;
+    border: 1px solid #10ad5e;
     text-align: center;
 }
 
@@ -33,6 +33,17 @@
     justify-content: center;
 }
 
+.otpBoxes input {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid black;
+}
+
+.otpBoxes input:focus {
+    outline: none;
+}
+
 .vLayoutUI .verifyBtns {
     width: 100%;
     display: flex;
@@ -51,7 +62,8 @@
 .verifyBtns .verify, .verifyBtns button {
     padding: 2%;
     width: 50%;
-    background-color: #ab90f7;
+    background-color: #10ad5e;
+    color: white;
     text-align: center;
     margin: 3% auto;
     border-radius: 5px;
@@ -59,10 +71,17 @@
 }
 .verifyBtns button {
     background-color: white;
-    border: 1px solid #ab90f7;
+    color: black;
+    border: 1px solid #10ad5e;
+}
+.verifyBtns .verify:hover {
+    border: 1px solid #10ad5e;
+    background-color: transparent;
+    color: #10ad5e;
 }
 .verifyBtns button:disabled {
     cursor: not-allowed;
+    color: grey;
 }
 
 @media (max-width: 425px) {

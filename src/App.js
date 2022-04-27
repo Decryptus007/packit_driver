@@ -1,7 +1,8 @@
 import React, { useState } from "react"
-import { Route, Routes, useNavigate } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 
 import Signin from './components/Auth/Signin/Signin'
+import ForgotPwd from "./components/Auth/Signin/ForgotPwd/ForgotPwd"
 import Signup from './components/Auth/Signup/Signup'
 import PageNil from './components/utils/PageNotFound/PageNotFound'
 
@@ -20,6 +21,7 @@ function App() {
   const loggedOutRoutes = (
     <Routes>
       <Route path="/" element={<Signin />} />
+      <Route path="forgotpwd" element={<ForgotPwd />} />
       <Route path="signup" element={<Signup />} />
       <Route path="*" element={<PageNil />} />
     </Routes>

@@ -104,3 +104,30 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+    .Signin .signInOne {
+        display: none;
+    }
+
+    .Signin {
+        justify-content: center;
+        background-color: white;
+    }
+
+    .Signin .signInTwo {
+        width: 100%;
+        background-color: #10ad5e;
+        border-radius: 100% 85% 0% 0% / 0% 53% 77% 36%;
+    }
+
+    .signInTwo h2 {
+        margin: 10% 5%;
+    }
+
+    .signInTwo form, .signInTwo small {
+        padding: 0 2%;
+    }
+}

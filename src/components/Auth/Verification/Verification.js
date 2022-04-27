@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import OTPInput, { ResendOTP } from "otp-input-react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import Modal from '../../utils/Modal/Modal'
+
 // import Modal from "../../Utilities/Modal/Modal"
 
 import packit from '../../../assets/images/pack it.png'
@@ -24,7 +26,7 @@ export default function Verification({ onVerify, email, setVNxtPg }) {
         if (OTP === accessCode) {
             setModalMssg("Logged In Successfully")
             setShowModal(true)
-            onVerify()
+            setVNxtPg('stage4')
         } else if (OTP === "") {
             setModalMssg("Input your OTP code")
             setShowModal(true)
@@ -36,13 +38,13 @@ export default function Verification({ onVerify, email, setVNxtPg }) {
 
     return (
         <>
-           {/* {showModal && <Modal onClick={tggleModal}>{modalMssg}</Modal>} */}
+           {showModal && <Modal onClick={tggleModal}>{modalMssg}</Modal>}
             <div className="vLayout">
                 <div className="vLayoutUI">
                     <img src={packit} alt="vLogo" />
                     <div className="vText">
                         <h3>Account Verification</h3>
-                        <p>We will send verification code to your email: {email}</p>
+                        <p>We will send verification code to your email: <span style={{color: "#10ad5e"}}>{email}</span></p>
                     </div>
                     <div className="otpBoxes">
                         <OTPInput
