@@ -45,7 +45,7 @@ export default function FirstStage(props) {
                     </div>
                     <button style={{width: "100%"}} type="submit" onClick={() => props.setNxtPg('stage2')}>Continue Registration</button>
                 </form>
-                <p>You already have an account? <span onClick={() => navigate('/')}>Login here</span></p>
+                <p>You already have an account? <span onClick={() => navigate('/')}>Login here &#8599;</span></p>
             </div>
         </div>
     )
