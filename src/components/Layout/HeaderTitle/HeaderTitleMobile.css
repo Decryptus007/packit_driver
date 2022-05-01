@@ -1,0 +1,37 @@
+
+@media (max-width: 1024px) {
+    .headerM {
+        width: 100%;
+    }
+    .headerM svg {
+        display: inline;
+        cursor: pointer;
+        margin-right: 8%;
+    }
+}
+
+@media (max-width: 425px) {
+    .headerM {
+        width: 50%;
+        margin-left: 0;
+    }
+    .headerM h2 {
+        font-size: large;
+    }
+    .homeHeaderMenu {
+        width: 50%;
+        justify-content: space-evenly;
+    }
+    .homeHeaderMenu .icons {
+        padding-right: 5%;
+    }
+    .homeProfile {
+        width: 60%;
+    }
+    .homeProfile .homeProfileText {
+        font-size: 10px;
+    }
+    .homeProfile .homeProfileText p{
+        font-size: 7px;
+    }
+}

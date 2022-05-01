@@ -1,0 +1,60 @@
+
+@media (max-width: 768px) {
+    .reqDeliveryUI .reqDeliveryForm {
+        flex-direction: column;
+    }
+
+    .reqDeliveryForm .requestForm1,
+    .reqDeliveryForm .requestForm2 {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .reqDeliveryForm .requestForm1 {
+        border-right: none;
+    }
+}
+
+@media (max-width: 425px) {
+    .reqDeliveryUI .selectVehicle {
+        height: auto;
+        flex-wrap: wrap;
+    }
+
+    .selectVehicle div {
+        width: 40%;
+        height: 120px;
+        margin: 2%;
+    }
+
+    .reqDeliveryForm .requestForm1,
+    .reqDeliveryForm .requestForm2 {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .reqDeliveryForm label textarea {
+        width: 100% !important;
+        height: 100px !important;
+    }
+
+    .deliveryTime input{
+        width: 100%;
+        height: 30px;
+        font-size: small;
+    }
+
+    .reqDeliveryForm .requestForm2 input,
+    .reqDeliveryForm button {
+        width: 100%;
+        height: 30px;
+    }
+
+    .reqDeliveryForm .requestForm2 input {
+        font-size: small;
+    }
+
+    .reqDeliveryForm button {
+        height: 40px;
+    }
+}

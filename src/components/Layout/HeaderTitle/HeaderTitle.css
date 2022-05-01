@@ -1,0 +1,49 @@
+.homeHeader {
+    padding: 1%;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.headerM {
+    width: 50%;
+    margin-left: -3%;
+    text-align: left;
+}
+.headerM svg {
+    display: none;
+}
+.homeHeaderMenu {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.homeHeaderMenu .icons {
+    padding-right: 10%;
+    border-right: 2px solid grey;
+}
+.homeHeaderMenu .icons .notification {
+    cursor: pointer;
+    color: #a0b3da;
+}
+
+.homeProfile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.homeProfile .homeProfileText {
+    font-size: 12px;
+}
+.homeProfile .homeProfileText p{
+    font-size: 9px;
+}
+
+.profileImage img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}

@@ -1,0 +1,109 @@
+.reqDelivery {
+    background: linear-gradient(180deg, rgb(95, 62, 184) 0%, rgba(8, 8, 85, 0.966) 84%);
+    width: 380px;
+    height: 200px;
+    border-radius: 2%;
+    color: #f5f9ff;
+    text-shadow: 1px 1px #282c34;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reqDelivery img {
+    display: block;
+    height: 100%;
+    width: 50%;
+}
+
+.reqDeliveryCaption {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.reqDeliveryCaption p {
+    font-size: x-small;
+}
+
+.reqDeliveryCaption .icons {
+    margin-left: 80%;
+    height: 35px;
+}
+
+.reqDeliveryCaption .icons svg {
+    font-size: large;
+    border-radius: 50%;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    from {
+        border: 1px solid white;
+        padding: 5%;
+    }
+
+    to {
+        border: 2px solid white;
+        padding: 7%;
+    }
+}
+
+.fundWallet {
+    padding: 1%;
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    width: 380px;
+    height: 200px;
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    color: #ab90f7;
+}
+
+.fundWallet p {
+    font-size: small;
+    color: #282c34;
+}
+
+.fundWallet h1 {
+    font-size: xx-large;
+    letter-spacing: 2px;
+}
+
+.fundBtn {
+    width: 100%;
+    text-align: center;
+    background-color: #ab90f7;
+    padding: 4%;
+    border-radius: 10px;
+    color: aliceblue;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.fundBtn:hover {
+    background-color: #634e9b;
+}
+
+.deliveryHistory {
+    color: #ab90f7;
+}
+
+.recentDeliveriesHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.recentDeliveriesHeader hr {
+    width: 55vw;
+    height: 2px;
+}

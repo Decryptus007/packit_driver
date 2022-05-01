@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,6 +15,22 @@ export default function Signin() {
 
     const navigate = useNavigate()
 
+    const btnRef = useRef()
+
+    const [emailInput, setEmailInput] = useState('')
+    const [pwd, setPwd] = useState('')
+
+    // eslint-disable-next-line no-useless-escape
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    useEffect(() => {
+        if (emailInput.match(mailformat) && (pwd !== '' && pwd.length >= 8)) {
+            btnRef.current.disabled = false
+        } else {
+            btnRef.current.disabled = true
+        }
+    })
+
     return (
         <div className="Signin">
             <div className="signInOne">
@@ -27,13 +43,21 @@ export default function Signin() {
                     <img src={packitLogo} alt="Packit" />
                     <div>
                         <FontAwesomeIcon className="loginIcon" icon="fa-solid fa-at" />
-                        <input placeholder="Email" type={"email"} autoComplete="true" />
+                        <input
+                            value={emailInput}
+                            onChange={e => setEmailInput(e.target.value)}
+                            placeholder="Email" type={"email"} autoComplete="true"
+                        />
                     </div>
                     <div>
                         <FontAwesomeIcon className="loginIcon" icon="fa-solid fa-unlock" />
-                        <input placeholder="Password" type={"password"} autoComplete="true" />
+                        <input
+                            value={pwd}
+                            onChange={e => setPwd(e.target.value)}
+                            placeholder="Password" type={"password"} autoComplete="true"
+                        />
                     </div>
-                    <button type="submit" onClick={() => dispatch(login())}>Log In</button>
+                    <button type="submit" ref={btnRef} onClick={() => dispatch(login())}>Log In</button>
                 </form>
                 <small onClick={() => navigate('/forgotpwd')}>Forgot Password?</small>
                 <p>You don't have an account?</p>

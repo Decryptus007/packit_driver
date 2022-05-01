@@ -1,0 +1,131 @@
+
+.reqDeliveryUI .selectVehicle {
+    /* margin-top: 3%; */
+    width: 100%;
+    height: 150px;
+    background-color: #ab90f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectVehicle div {
+    color: white;
+    margin: auto 3%;
+    width: 15%;
+    height: 80%;
+    border: 3px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.selectVehicle div:focus {
+    background-color: white;
+    color: #ab90f7;
+}
+
+.selectVehicle div:hover {
+    background-color: white;
+    color: #ab90f7;
+}
+
+.selectVehicle div svg {
+    font-size: 3rem;
+}
+
+.reqDeliveryUI .reqDeliveryForm {
+    margin-top: 3%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reqDeliveryForm .requestForm1,
+.reqDeliveryForm .requestForm2 {
+    width: 48%;
+    padding: 2%;
+}
+
+.reqDeliveryForm .requestForm1 {
+    border-right: 2px solid #c5d1fa;
+}
+
+.reqDeliveryForm label {
+    display: block;
+    margin: 2% auto;
+}
+
+.reqDeliveryForm label h3 {
+    font-weight: 500;
+    padding: 1% 0;
+    font-size: medium;
+}
+
+.reqDeliveryForm label textarea {
+    resize: none;
+    width: 85% !important;
+    height: 100px !important;
+    border: 1px solid #c5d1fa;
+    border-radius: 5px;
+    padding: 1%;
+    font-size: medium;
+}
+
+.reqDeliveryForm .deliveryTime {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.deliveryTime label {
+    width: 49%;
+}
+
+.deliveryTime input {
+    border: 1px solid #c5d1fa;
+    border-radius: 5px;
+    padding: 1%;
+    font-size: medium;
+}
+
+.deliveryTime input::-webkit-calendar-picker-indicator {
+    font-size: large;
+}
+
+.reqDeliveryForm .requestForm2 input,
+.reqDeliveryForm button {
+    width: 80%;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #c5d1fa;
+    padding: 1px;
+    font-size: medium;
+}
+
+.requestForm2 input[type=file] {
+    padding: 0;
+}
+
+.requestForm2 input[type=file]::file-selector-button {
+    font-weight: 500;
+    background-color: #a29bfe;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    height: 100%;
+    cursor: pointer;
+}
+
+.reqDeliveryForm button {
+    margin-top: 8%;
+    font-weight: 600;
+    background-color: #ab90f7;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

@@ -25,6 +25,17 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  background-color: grey !important;
+  color: white !important;
+  cursor: not-allowed;
+}
+
+button:disabled:hover {
+  background-color: grey !important;
+  color: white !important;
+}
+
 input, select, textarea {
   height: 35px;
   border-radius: 10px;

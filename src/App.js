@@ -41,7 +41,11 @@ function App() {
   const loggedOutRoutes = (
     <Routes>
       <Route path="/" element={<Signin />} />
-      <Route path="forgotpwd" element={<ForgotPwd setFgEmail={e => setFgEmail(e)} setFgpwd={setFgpwdFunc} />} />
+      <Route path="forgotpwd" element={<ForgotPwd
+        fgEmail={fgEmail}
+        setFgEmail={e => setFgEmail(e)}
+        setFgpwd={setFgpwdFunc} />}
+      />
       {fgPwd && <Route path="/forgotpwd/verification" element={<Verification email={fgEmail} resetPwd={setResetpwdFunc} />} />}
       {resetPwd && <Route path="resetpwd" element={<ResetPwd />} />}
       <Route path="signup" element={<Signup />} />
@@ -55,6 +59,7 @@ function App() {
       <Route path="*" element={<PageNil />} />
     </Routes>
   )
+  
 
   return (
     <div className="App">

@@ -1,0 +1,49 @@
+.navLinks {
+    font-weight: 500;
+    font-size: 95%;
+    cursor: pointer;
+    color: #ab90f7;
+    width: 100%;
+    padding: 5% 0;
+    transition: 0.5s;
+}
+.navLinks:hover {
+    background-color: #6f90d3;
+    border-left: 5px solid #043288;
+    color: black;
+}
+
+.onFocus {
+    background-color: #6f90d3;
+    border-left: 5px solid #043288;
+    color: black;
+}
+
+.icons {
+    color: #a0b3da;
+    margin-right: 5%;
+}
+.navLinks:hover .icons{
+    color: #ffffff;
+}
+
+/* MEDIA SCREEN STYLES */
+
+@media (max-width: 1024px) {
+    .navLinks {
+        font-weight: 500;
+        font-size: 95%;
+        cursor: pointer;
+        color: #ab90f7;
+        width: 100%;
+        padding: 2% 0;
+        transition: 0.5s;
+    }
+}
+
+@media (max-width: 425px) {
+    .navLinks {
+        padding: 5% 0;
+        margin: 2% auto;
+    }
+}

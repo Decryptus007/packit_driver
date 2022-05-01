@@ -16,7 +16,7 @@ function ResetPwd() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if ((newPwd !== '') && (newPwd === rePwd)) {
+        if ((newPwd !== '' && newPwd.length >= 8) && (newPwd === rePwd)) {
             btnRef.current.disabled = false
         } else {
             btnRef.current.disabled = true
@@ -33,7 +33,8 @@ function ResetPwd() {
             <div className="resetPwdUI">
                 <form onSubmit={e => e.preventDefault()} >
                     <p>Enter New Password</p>
-                    <input onChange={(e) => setNewPwd(e.target.value)} type={"password"} />
+                    <small style={{color: 'red'}}>Password must contain 8 characters or more</small>
+                    <input title="Password must contain 8 characters or more" onChange={(e) => setNewPwd(e.target.value)} type={"password"} />
                     <p>Re-enter New Password</p>
                     <input onChange={(e) => setRePwd(e.target.value)} type={"password"} />
                     <button ref={btnRef} onClick={() => setShowModal(true)} type="submit">Save</button>

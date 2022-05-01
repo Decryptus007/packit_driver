@@ -1,0 +1,59 @@
+
+.recentDeliveriesCards {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+
+.recentDeliveriesCard {
+    flex: 0 0 auto;
+    margin: 2%;
+    padding: 1%;
+    padding-left: 3%;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 10px;
+    height: 180px;
+    width: 320px;
+    box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.58);
+    backdrop-filter: blur(8.2px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.recentDeliveriesCard h3 {
+    font-weight: 500;
+}
+.recentDeliveriesCard .black {
+    color: #282c34;
+}
+.recentDeliveriesCard p {
+    font-size: smaller;
+}
+.innerPackageDetails {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.innerPackageDetails span {
+    font-size: large;
+    font-weight: 500;
+    color: #ab90f7;
+}
+.packageView {
+    text-align: center;
+    padding: 1% 2%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 70px;
+    cursor: zoom-in;
+}
+.packageView .icon {
+    margin: 0 5px;
+    color: #ab90f7;
+}

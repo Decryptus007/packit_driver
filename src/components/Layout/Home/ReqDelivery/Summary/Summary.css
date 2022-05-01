@@ -1,0 +1,145 @@
+
+.summary h2,
+.drivers h2 {
+    margin-bottom: 1%;
+}
+
+.summary .sumHolder {
+    margin: 3% auto;
+}
+
+/* .summary .sumHolder:nth-child(1) {
+    margin-top: 15%;
+} */
+
+#vehicle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.summary .sumDisplay {
+    background-color: white;
+    border: 1px solid #c5d1fa;
+    width: 100%;
+    padding: 2%;
+    margin-top: 1%;
+    font-size: small;
+    border-radius: 10px;
+}
+
+.sumDisplay p {
+    font-weight: 600;
+}
+
+#vehicle p,
+.sumDisplay svg {
+    font-weight: 600;
+    color: #ab90f7;
+    font-size: xx-large;
+}
+#vehicle p {
+    font-size: large;
+}
+
+.summary .sumBtns {
+    width: 100%;
+    margin-top: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sumBtns div {
+    margin: 0 3%;
+    padding: 1% 3%;
+    border: 2px solid #ab90f7;
+    cursor: pointer;
+    color: #ab90f7;
+    border-radius: 10px;
+}
+
+.sumBtns div:nth-child(2) {
+    color: white;
+    background-color: #ab90f7;
+}
+
+.drivers section {
+    margin-top: 5%;
+}
+
+.driverCard {
+    width: 100%;
+    background-color: white;
+    border: 1px solid #c5d1fa;
+    padding: 2%;
+    margin-top: 1%;
+    border-radius: 10px;
+    height: 100px;
+}
+
+.driverCard:hover {
+    background-color: #f2edfc;
+}
+
+.driverCard .driverName,
+.driverCard .driverActn,
+.driverName .driverP {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.driverName svg {
+    font-size: xx-large;
+    color: #ab90f7;
+}
+
+.driverName .driverP {
+    width: 50%;
+    justify-content: flex-start;
+}
+
+.driverP p {
+    margin-left: 3%;
+    font-weight: 600;
+}
+
+.driverCard .driverActn {
+    margin-top: 3%;
+    width: 100%;
+}
+
+.driverActn .driverPrice {
+    font-weight: 600;
+    width: 50%;
+}
+
+.driverActn .driverPrice span {
+    margin-left: 2%;
+    background-color: #ab90f7;
+    border-radius: 5px;
+    padding: 1% 2%;
+}
+
+.driverActn .driverAss {
+    padding: 1% 3%;
+    border: 2px solid #ab90f7;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.driverActn .driverAss:hover {
+    background-color: #ab90f7;
+    color: white;
+}
+
+
+
+@media (max-width: 425px) {
+    .sumBtns div,
+    .driverActn .driverAss {
+        border: 1px solid #ab90f7;
+    }
+}
