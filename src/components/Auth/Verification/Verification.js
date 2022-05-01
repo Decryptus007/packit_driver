@@ -25,11 +25,10 @@ export default function Verification(props) {
     let accessCode = "1111"
 
     const getLoggedIn = () => {
-
         if (OTP === accessCode) {
             setModalMssg("Logged In Successfully")
             setShowModal(true)
-            props.setVNxtPg ? props.setVNxtPg('stage4') : props.resetPwd()
+            props.fwdPg ? props.fwdPg() : props.resetPwd()
         } else if (OTP === "") {
             setModalMssg("Input your OTP code")
             setShowModal(true)
@@ -69,7 +68,7 @@ export default function Verification(props) {
                 </div>
             </div>
             <FontAwesomeIcon className="backIcon" icon="fa-solid fa-chevron-left" onClick={() => {
-                props.setVNxtPg ? props.setVNxtPg('stage2') : navigate('/forgotpwd')
+                props.backPg ? props.backPg() : navigate('/forgotpwd')
             }
             } />
         </>

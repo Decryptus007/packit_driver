@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import { Route, Routes, useNavigate } from "react-router-dom"
+import { useSelector } from "react-redux"
 
-//FALSE ROUTES
+//FALSY ROUTES
 import Signin from './components/Auth/Signin/Signin'
 import ForgotPwd from "./components/Auth/Signin/ForgotPwd/ForgotPwd"
 import Verification from "./components/Auth/Verification/Verification"
@@ -21,7 +22,7 @@ library.add(fab, fas, far)
 function App() {
   const naviagte = useNavigate()
 
-  const [auth, setAuth] = useState(false)
+  const auth = useSelector(state => state.authState.value)
 
   const [fgPwd, setFgpwd] = useState(false)
   const [fgEmail, setFgEmail] = useState('')

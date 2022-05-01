@@ -1,6 +1,9 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { login } from '../../../features/authReducer'
 
 import './Signin.css'
 
@@ -8,6 +11,7 @@ import packitLogo from '../../../assets/images/favicon.png'
 import nairaHand from '../../../assets/images/naira hand 1.png'
 
 export default function Signin() {
+    const dispatch = useDispatch()
 
     const navigate = useNavigate()
 
@@ -29,7 +33,7 @@ export default function Signin() {
                         <FontAwesomeIcon className="loginIcon" icon="fa-solid fa-unlock" />
                         <input placeholder="Password" type={"password"} autoComplete="true" />
                     </div>
-                    <button type="submit">Log In</button>
+                    <button type="submit" onClick={() => dispatch(login())}>Log In</button>
                 </form>
                 <small onClick={() => navigate('/forgotpwd')}>Forgot Password?</small>
                 <p>You don't have an account?</p>

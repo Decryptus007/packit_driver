@@ -1,13 +1,22 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { setSignupStage, setSelectId, setIdval, setIdval2 } from "../../../features/signupReducer";
 
 export default function FourthStage(props) {
 
+    const dispatch = useDispatch()
+    const defaultId = useSelector(state => state.signupState.idVal)
+    const defaultId2 = useSelector(state => state.signupState.idVal2)
+    const selectId = useSelector(state => state.signupState.selectId)
+    
+
     const oneImg = (<>
         <div>
-            <img src={props.idVal} alt="ID" />
+            <img src={defaultId} alt="ID" />
             <label className="uploadIcon">
-                <input style={{ height: "0", width: "0", opacity: "0" }} accept="image/*" type={"file"} onChange={e => props.setIdval(URL.createObjectURL(e.target.files[0]))} />
+                <input style={{ height: "0", width: "0", opacity: "0" }} accept="image/*" type={"file"} onChange={e => dispatch( setIdval(URL.createObjectURL(e.target.files[0])) )} />
                 <FontAwesomeIcon icon="fa-solid fa-file-circle-plus" />
             </label>
         </div>
@@ -17,17 +26,17 @@ export default function FourthStage(props) {
     const twoImg = (<>
         <section>
             <div>
-                <img src={props.idVal} alt="ID" />
+                <img src={defaultId} alt="ID" />
                 <label className="uploadIcon">
-                    <input style={{ height: "0", width: "0", opacity: "0" }} accept="image/*" type={"file"} onChange={e => props.setIdval(URL.createObjectURL(e.target.files[0]))} />
+                    <input style={{ height: "0", width: "0", opacity: "0" }} accept="image/*" type={"file"} onChange={e => dispatch( setIdval(URL.createObjectURL(e.target.files[0])) )} />
                     <FontAwesomeIcon icon="fa-solid fa-file-circle-plus" />
                 </label>
                 <small>Front</small>
             </div>
             <div>
-                <img src={props.idVal2} alt="ID" />
+                <img src={defaultId2} alt="ID" />
                 <label className="uploadIcon">
-                    <input style={{ height: "0", width: "0", opacity: "0" }} accept="image/*" type={"file"} onChange={e => props.setIdval2(URL.createObjectURL(e.target.files[0]))} />
+                    <input style={{ height: "0", width: "0", opacity: "0" }} accept="image/*" type={"file"} onChange={e => dispatch( setIdval2(URL.createObjectURL(e.target.files[0])) )} />
                     <FontAwesomeIcon icon="fa-solid fa-file-circle-plus" />
                 </label>
                 <small>Back</small>
@@ -36,7 +45,7 @@ export default function FourthStage(props) {
     </>)
 
     let output = <main className="loader">Loading...</main>
-    switch (props.value) {
+    switch (selectId) {
         case 'NatID':
             output = twoImg
             break;
@@ -53,12 +62,13 @@ export default function FourthStage(props) {
             break;
     }
 
+
     return (
         <div className="frthStage">
             <img src={props.imgFLogo} alt="Packit" />
             <form onSubmit={e => e.preventDefault()}>
                 <h3 style={{ fontWeight: "500" }}>Upload Mode Of Identification</h3>
-                <select value={props.value} onChange={e => props.setValue(e.target.value)}>
+                <select value={selectId} onChange={e => dispatch(setSelectId(e.target.value))}>
                     <option value='' >Choose ID Type</option>
                     <option value='NatID' >National ID</option>
                     <option value='Vcard' >Voter's Card</option>
@@ -66,9 +76,9 @@ export default function FourthStage(props) {
                     <option value='NIN'>NIN Slip</option>
                 </select>
                 {output}
-                <button type="submit" onClick={() => props.setFNxtPg('stage5')}>Next</button>
+                <button type="submit" onClick={() => dispatch(setSignupStage('stage5'))}>Next</button>
             </form>
-            <FontAwesomeIcon className="backIcon" icon="fa-solid fa-chevron-left" onClick={() => props.setFNxtPg('stage2')} />
+            <FontAwesomeIcon className="backIcon" icon="fa-solid fa-chevron-left" onClick={() => dispatch(setSignupStage('stage2'))} />
         </div>
     )
 }
