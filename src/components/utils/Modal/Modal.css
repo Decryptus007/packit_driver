@@ -14,18 +14,18 @@
     transition: 0.5s;
     animation: pop 0.2s linear;
     animation-iteration-count: 1;
-    z-index: 1;
+    z-index: 10;
 }
 
 .info {
     position: absolute;
-    top: 35%;
+    top: 25%;
     left: 23vw;
     text-align: center;
     background-color: #10ad5e;
     padding: 2rem;
     width: 50vw;
-    height: fit-content;
+    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,7 +34,7 @@
     color: white;
     font-weight: bold;
     font-size: larger;
-    z-index: 2;
+    z-index: 10;
     animation: pop 0.5s linear;
 }
 .info img {
@@ -49,9 +49,16 @@
   margin: 10% auto 0;
 }
 
+.info button:hover {
+  background-color: white;
+  color: #10ad5e;
+}
+
 @media (max-width: 425px) {
   .info {
     font-size: medium;
+    width: 75vw;
+    left: 12.5vw;
   }
   .info img {
     width: 50%;

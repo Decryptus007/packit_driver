@@ -30,6 +30,7 @@
 }
 .recentDeliveriesCard .black {
     color: #282c34;
+    font-size: small;
 }
 .recentDeliveriesCard p {
     font-size: smaller;
@@ -43,7 +44,7 @@
 .innerPackageDetails span {
     font-size: large;
     font-weight: 500;
-    color: #ab90f7;
+    color: #10ad5e;
 }
 .packageView {
     text-align: center;
@@ -55,5 +56,5 @@
 }
 .packageView .icon {
     margin: 0 5px;
-    color: #ab90f7;
+    color: #10ad5e;
 }

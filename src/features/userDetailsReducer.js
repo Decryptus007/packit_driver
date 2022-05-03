@@ -31,8 +31,8 @@ const initialState = {
     },
 }
 
-const signupReducer = createSlice({
-    name: 'signupState',
+const userDetailsReducer = createSlice({
+    name: 'userDetails',
     initialState,
     reducers: {
         setSignupStage: (state, action) => { state.signupStage = action.payload },
@@ -77,6 +77,6 @@ export const {
     setIdval2State,
     setProfpic,
     setProfpicState,
-} = signupReducer.actions
+} = userDetailsReducer.actions
 
-export default signupReducer.reducer
+export default userDetailsReducer.reducer

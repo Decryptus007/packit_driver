@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { setProfpic, setProfpicState, setSignupStage } from "../../../features/signupReducer";
+import { setProfpic, setProfpicState, setSignupStage } from "../../../features/userDetailsReducer";
 
 import Modal from "../../utils/Modal/Modal";
 
@@ -13,7 +13,7 @@ export default function FifthStage(props) {
     const navigate = useNavigate()
 
     const dispatch = useDispatch()
-    const profilePic = useSelector(state => state.signupState.profilePic)
+    const profilePic = useSelector(state => state.userDetails.profilePic)
 
     const [showModal, setShowModal] = useState(false)
 

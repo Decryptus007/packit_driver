@@ -3,7 +3,7 @@ import logoImg from '../../../assets/images/favicon.png'
 
 import './Modal.css'
 
-export default function Modal({ refr, onClick, children }) {
+export default function Modal({ onClick, children }) {
 
     return (
         <>

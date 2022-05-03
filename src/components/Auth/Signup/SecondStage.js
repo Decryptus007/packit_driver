@@ -3,7 +3,14 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { setSignupStage, setCountry, setMarital, setGender, setAltphone, setAddress } from "../../../features/signupReducer";
+import {
+    setSignupStage,
+    setCountry,
+    setMarital,
+    setGender,
+    setAltphone,
+    setAddress,
+} from "../../../features/userDetailsReducer";
 
 const baseURL = 'https://restcountries.com/v2/regionalbloc/au'
 
@@ -11,11 +18,11 @@ export default function SecondStage(props) {
     const [countries, setCountries] = useState([{ name: 'Loading', flag: null }])
 
     const dispatch = useDispatch()
-    const country = useSelector(state => state.signupState.country)
-    const marital = useSelector(state => state.signupState.marital)
-    const gender = useSelector(state => state.signupState.gender)
-    const altPhone = useSelector(state => state.signupState.altPhone)
-    const address = useSelector(state => state.signupState.address)
+    const country = useSelector(state => state.userDetails.country)
+    const marital = useSelector(state => state.userDetails.marital)
+    const gender = useSelector(state => state.userDetails.gender)
+    const altPhone = useSelector(state => state.userDetails.altPhone)
+    const address = useSelector(state => state.userDetails.address)
 
     const btnRef = useRef()
 

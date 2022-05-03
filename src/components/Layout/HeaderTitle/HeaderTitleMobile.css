@@ -8,6 +8,10 @@
         cursor: pointer;
         margin-right: 8%;
     }
+    .homeHeaderMenu {
+        width: 45%;
+        justify-content: space-evenly;
+    }
 }
 
 @media (max-width: 425px) {

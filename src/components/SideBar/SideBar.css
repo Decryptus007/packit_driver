@@ -21,6 +21,8 @@
 
 .brandLogo img {
   width: 65%;
+  display: inline-block;
+  padding: 10% 0 0;
 }
 .sideBar #sideBarOverlay {
   display: none;
@@ -75,11 +77,13 @@
 
 @media (max-width: 425px) {
   .sideBar {
+    overflow-y: scroll;
     width: 75vw;
     justify-content: flex-start;
   }
   .brandLogo img {
     margin-top: 2%;
     width: 40%;
+    padding-top: 5%;
   }
 }

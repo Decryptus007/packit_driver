@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -6,7 +8,83 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+::selection {
+  background: #6df5b1;
+  /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+  background: #6df5b1;
+  /* Gecko Browsers */
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+  /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #282c34;
+  /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #10ad5e;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid #282c34;
+  /* creates padding around scroll thumb */
+}
+
+.recentDeliveriesCards::-webkit-scrollbar,
+.orderStats::-webkit-scrollbar {
+  height: 6px;
+}
+
+.recentDeliveriesCards::-webkit-scrollbar-track,
+.orderStats::-webkit-scrollbar-track {
+  background: #282c34;
+}
+
+.recentDeliveriesCards::-webkit-scrollbar-thumb,
+.orderStats::-webkit-scrollbar-thumb {
+  background: #10ad5e;
+  border-radius: 10px;
+}
+
+.transactionHistories::-webkit-scrollbar,
+.reqDelivery section main .main1::-webkit-scrollbar {
+  width: 6px;
+  /* width of the entire scrollbar */
+}
+
+.transactionHistories::-webkit-scrollbar-track,
+.reqDelivery section main .main1::-webkit-scrollbar-track {
+  background: #282c34ce;
+  border-radius: 20px;
+}
+
+.transactionHistories::-webkit-scrollbar-thumb,
+.reqDelivery section main .main1::-webkit-scrollbar-thumb {
+  background-color: #10ad5e;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 img {
@@ -36,7 +114,9 @@ button:disabled:hover {
   color: white !important;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   height: 35px;
   border-radius: 10px;
   caret-color: #10ad5e;

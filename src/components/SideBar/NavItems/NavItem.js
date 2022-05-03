@@ -1,19 +1,32 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate, useLocation } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import { openAuthModal } from '../../../features/authModalReducer'
+import { closeSideBar } from '../../../features/sideBarReducer'
+
 import './NavItem.css'
 
-export default function NavItem({ showModal, signOutUser }) {
+export default function NavItem() {
     const [clicked, setClicked] = useState('');
+
+    const dispatch = useDispatch()
+
     const navigate = useNavigate()
     const location = useLocation()
 
     const navigateTo = (param) => {
         setClicked(location.pathname)
         navigate(param)
+
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            dispatch(closeSideBar())
+        }
     }
+
+    useEffect(() => {}, [clicked, location.pathname])
 
     const handleClick = (id) => {
         switch (id) {
@@ -21,7 +34,7 @@ export default function NavItem({ showModal, signOutUser }) {
                 navigateTo('/')
                 break;
             case 2:
-                navigateTo('/wallet')
+                navigateTo('/deliveryhistory')
                 break;
 
             case 3:
@@ -44,6 +57,10 @@ export default function NavItem({ showModal, signOutUser }) {
                 navigateTo('/settings')
                 break;
 
+            case 8:
+                navigateTo('/settings')
+                break;
+
             default:
                 navigate("/404")
                 break;
@@ -51,20 +68,52 @@ export default function NavItem({ showModal, signOutUser }) {
     }
 
     const navLinks = [
-        { name: 'Home', icon: <FontAwesomeIcon className='icons' icon={['fas', 'house-user']} />, directTo: () => handleClick(1) },
-        { name: 'Wallet', icon: <FontAwesomeIcon className='icons' icon={['fas', 'wallet']} />, directTo: () => handleClick(2) },
-        { name: 'Live Tracking', icon: <FontAwesomeIcon className='icons' icon={['fas', 'chalkboard']} />, directTo: () => handleClick(3) },
-        { name: 'Chats', icon: <FontAwesomeIcon className='icons' icon={['fas', 'message']} />, directTo: () => handleClick(4) },
-        { name: 'Notification', icon: <FontAwesomeIcon className='icons' icon={['fas', 'bell']} />, directTo: () => handleClick(5) },
-        { name: 'Support', icon: <FontAwesomeIcon className='icons' icon={['fas', 'headset']} />, directTo: () => handleClick(6) },
-        { name: 'Settings', icon: <FontAwesomeIcon className='icons' icon={['fas', 'gears']} />, directTo: () => handleClick(7) },
+        {
+            name: 'Home',
+            styles: { margin: '10% auto 0', },
+            icon: <FontAwesomeIcon className='icons' icon={['fas', 'house-user']} />,
+            directTo: () => handleClick(1)
+        },
+        {
+            name: 'Delivery History',
+            icon: <FontAwesomeIcon className='icons' icon={['fas', 'clock-rotate-left']} />,
+            directTo: () => handleClick(2)
+        },
+        {
+            name: 'Withdrawal History',
+            icon: <FontAwesomeIcon className='icons' icon={['fas', 'check-to-slot']} />,
+            directTo: () => handleClick(3)
+        },
+        {
+            name: 'Location Map',
+            icon: <FontAwesomeIcon className='icons' icon={['fas', 'route']} />,
+            directTo: () => handleClick(4)
+        },
+        {
+            name: 'Chat',
+            icon: <FontAwesomeIcon className='icons' icon={['fas', 'message']} />,
+            directTo: () => handleClick(5)
+        },
+        {
+            name: 'Notification',
+            icon: <FontAwesomeIcon className='icons' icon={['fas', 'bell']} />,
+            directTo: () => handleClick(6)
+        },
+        {
+            name: 'Support',
+            icon: <FontAwesomeIcon className='icons' icon={['fas', 'headset']} />,
+            directTo: () => handleClick(7)
+        },
+        {
+            name: 'Settings',
+            icon: <FontAwesomeIcon className='icons' icon={['fas', 'gears']} />,
+            directTo: () => handleClick(7)
+        },
         {
             name: 'Logout',
+            styles: { margin: '15% auto 10%', color: '#a0b3da' },
             icon: <FontAwesomeIcon className='icons' icon={['fas', 'right-from-bracket']} />,
-            directTo: () => {
-                showModal()
-                signOutUser()
-            }
+            directTo: () => { dispatch(openAuthModal()) }
         },
     ]
 
@@ -81,9 +130,15 @@ export default function NavItem({ showModal, signOutUser }) {
 
                 let output
                 if (address === clicked) {
-                    output = <div className="navLinks onFocus" key={id} onClick={navLink.directTo}> {navLink.icon} {navLink.name} </div>
+                    output = <div style={navLink.styles}
+                        className="navLinks onFocus" key={id} onClick={navLink.directTo}>
+                        {navLink.icon} {navLink.name}
+                    </div>
                 } else {
-                    output = <div className="navLinks" key={id} onClick={navLink.directTo}> {navLink.icon} {navLink.name} </div>
+                    output = <div style={navLink.styles}
+                        className="navLinks" key={id} onClick={navLink.directTo}>
+                        {navLink.icon} {navLink.name}
+                    </div>
                 }
                 return output
             })}

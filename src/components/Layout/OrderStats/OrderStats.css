@@ -15,7 +15,7 @@
     width: 160px;
     height: 100px;
     background-color: white;
-    border-radius: 100% 30% 0% 18% / 0% 26% 59% 36% ;
+    border-radius: 10px ;
     box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.58);
     backdrop-filter: blur(8.2px);
 }
@@ -26,7 +26,7 @@
 }
 .orderStat h1 {
     font-weight: 600;
-    color: #282c34;
+    color: black;
 }
 #activeStat.orderStat {
     border: 1px solid green;

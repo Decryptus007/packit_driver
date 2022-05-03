@@ -1,21 +1,17 @@
 .navLinks {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 95%;
     cursor: pointer;
-    color: #ab90f7;
+    color: #10ad5e;
     width: 100%;
     padding: 5% 0;
     transition: 0.5s;
 }
-.navLinks:hover {
-    background-color: #6f90d3;
-    border-left: 5px solid #043288;
-    color: black;
-}
 
-.onFocus {
-    background-color: #6f90d3;
-    border-left: 5px solid #043288;
+.onFocus,
+.navLinks:hover {
+    background-color: #72f3b249;
+    border-left: 5px solid #72f3b2;
     color: black;
 }
 
@@ -32,9 +28,9 @@
 @media (max-width: 1024px) {
     .navLinks {
         font-weight: 500;
-        font-size: 95%;
         cursor: pointer;
-        color: #ab90f7;
+        font-size: 90%;
+        color: #10ad5e;
         width: 100%;
         padding: 2% 0;
         transition: 0.5s;

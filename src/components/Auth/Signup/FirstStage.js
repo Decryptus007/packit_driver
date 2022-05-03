@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { setSignupStage, setFname, setLname, setPhone, setEmail, setPwd, setCpwd } from "../../../features/signupReducer";
+import { setSignupStage, setFname, setLname, setPhone, setEmail, setPwd, setCpwd } from "../../../features/userDetailsReducer";
 
 import packitLogo from '../../../assets/images/pack it.png'
 import truck from '../../../assets/images/signOutImg.png'
@@ -12,12 +12,12 @@ export default function FirstStage() {
 
     const dispatch = useDispatch()
 
-    const fname = useSelector(state => state.signupState.fname)
-    const lname = useSelector(state => state.signupState.lname)
-    const phone = useSelector(state => state.signupState.phone)
-    const email = useSelector(state => state.signupState.email)
-    const pwd = useSelector(state => state.signupState.pwd)
-    const cpwd = useSelector(state => state.signupState.cpwd)
+    const fname = useSelector(state => state.userDetails.fname)
+    const lname = useSelector(state => state.userDetails.lname)
+    const phone = useSelector(state => state.userDetails.phone)
+    const email = useSelector(state => state.userDetails.email)
+    const pwd = useSelector(state => state.userDetails.pwd)
+    const cpwd = useSelector(state => state.userDetails.cpwd)
 
     const navigate = useNavigate()
 

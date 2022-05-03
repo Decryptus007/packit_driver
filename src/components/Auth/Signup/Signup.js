@@ -11,13 +11,13 @@ import './Signup.css'
 import './OtherStages.css'
 
 import packitLogo from '../../../assets/images/pack it.png'
-import { setSignupStage } from "../../../features/signupReducer";
+import { setSignupStage } from "../../../features/userDetailsReducer";
 
 export default function Signup() {
 
     const dispatch = useDispatch()
-    const signupPgState = useSelector(state => state.signupState.signupStage)
-    const email = useSelector(state => state.signupState.email)
+    const signupPgState = useSelector(state => state.userDetails.signupStage)
+    const email = useSelector(state => state.userDetails.email)
 
     let output
     switch (signupPgState) {

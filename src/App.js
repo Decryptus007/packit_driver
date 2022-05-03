@@ -10,6 +10,10 @@ import ResetPwd from "./components/Auth/Signin/ForgotPwd/ResetPwd/ResetPwd"
 import Signup from './components/Auth/Signup/Signup'
 import PageNil from './components/utils/PageNotFound/PageNotFound'
 
+//TRUE ROUTES
+import Home from "./components/Layout/Home/Home"
+import DeliveryHistory from "./components/Layout/DeliveryHistory/DeliveryHistory"
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
@@ -55,7 +59,8 @@ function App() {
 
   const loggedInRoutes = (
     <Routes>
-      <Route path="/" element={<PageNil />} />
+      <Route path="/" element={<Home />} />
+      <Route path="deliveryhistory" element={<DeliveryHistory />} />
       <Route path="*" element={<PageNil />} />
     </Routes>
   )

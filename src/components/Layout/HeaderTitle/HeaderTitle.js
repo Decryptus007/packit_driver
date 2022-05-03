@@ -1,18 +1,26 @@
 
 import React from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import profileImg from '../../../images/profilePic.jpg'
+
+import { openSidebar } from "../../../features/sideBarReducer"
 
 import './HeaderTitle.css'
 import './HeaderTitleMobile.css'
 
 export default function HomeHeader(props) {
+    const dispatch = useDispatch()
+
+    const profileImg = useSelector(state => state.userDetails.profilePic.imgDefault)
+    const fname = useSelector(state => state.userDetails.fname)
+    const lname = useSelector(state => state.userDetails.lname)
+
 
     return (
         <div className="homeHeader">
             <div className="headerM">
-                <FontAwesomeIcon onClick={() => props.showSideBar()} icon="fa-solid fa-bars-staggered" />
+                <FontAwesomeIcon onClick={() => dispatch(openSidebar())} icon="fa-solid fa-bars-staggered" />
                 <h2 style={{display: "inline-block", marginLeft: "5%"}}>{props.currentPage}</h2>
             </div>
             <div className="homeHeaderMenu">
@@ -24,7 +32,7 @@ export default function HomeHeader(props) {
 
                 <div className="homeProfile">
                     <div className="homeProfileText">
-                        <h4>Mary Jill</h4>
+                        <h4>{fname || 'Driver'} {lname || 'Name'}</h4>
                         <p>ID: 12345678</p>
                     </div>
                     <div className="profileImage">

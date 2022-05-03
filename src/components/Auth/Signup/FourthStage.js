@@ -9,15 +9,15 @@ import {
     setIdvalState,
     setIdval2,
     setIdval2State
-} from "../../../features/signupReducer";
+} from "../../../features/userDetailsReducer";
 
 export default function FourthStage(props) {
 
     const dispatch = useDispatch()
 
-    const defaultId = useSelector(state => state.signupState.idVal)
-    const defaultId2 = useSelector(state => state.signupState.idVal2)
-    const selectId = useSelector(state => state.signupState.selectId)
+    const defaultId = useSelector(state => state.userDetails.idVal)
+    const defaultId2 = useSelector(state => state.userDetails.idVal2)
+    const selectId = useSelector(state => state.userDetails.selectId)
 
     const btnRef = useRef()
 
