@@ -38,7 +38,7 @@ export default function NavItem() {
                 break;
 
             case 3:
-                navigateTo('/livetracking')
+                navigateTo('/withdrawalhistory')
                 break;
 
             case 4:

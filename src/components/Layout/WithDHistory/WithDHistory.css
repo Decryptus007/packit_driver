@@ -1,0 +1,6 @@
+
+@media (max-width: 425px) {
+    .withDHistory .headerM h2 {
+        font-size: small;
+    }
+}

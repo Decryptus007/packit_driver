@@ -1,0 +1,121 @@
+.deliveryHistory .deliveries,
+.deliveries .item,
+.deliveries .address,
+.deliveries .rating,
+.deliveries .rating div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 120px;
+}
+
+.deliveryHistory .deliveries {
+    background: ghostwhite;
+    margin: 2% auto;
+}
+
+.deliveries .item {
+    background: rgb(16, 173, 94);
+    background: linear-gradient(147deg, rgba(16, 173, 94, 1) 0%, rgba(103, 109, 221, 1) 80%);
+    width: 35%;
+    color: white;
+}
+
+.deliveries .item img {
+    padding: 2%;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.deliveries .address {
+    width: 40%;
+    color: black;
+}
+
+.deliveries .address p {
+    font-size: small;
+}
+
+.deliveries .address small {
+    font-size: x-small;
+}
+
+.deliveries .rating {
+    width: 20%;
+}
+
+.deliveries .rating div {
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.deliveries .rating div .ratingRemark {
+    color: white;
+    align-self: flex-end;
+    background-color: limegreen;
+    padding: 2% 2% 2% 4%;
+    border-radius: 10px 0 0 10px;
+}
+
+.deliveries .rating div .rateIcon {
+    padding: 20%;
+    border-radius: 50%;
+    background: rgb(16, 173, 94);
+    background: linear-gradient(147deg, rgba(16, 173, 94, 1) 0%, rgba(103, 109, 221, 1) 80%);
+}
+
+.deliveries .rating div .price {
+    color: black;
+}
+
+.deliveries .rating div .price b {
+    font-size: large;
+}
+
+@media (max-width: 1024px) {
+    .deliveries .address div {
+        padding: 0 1%;
+    }
+
+    .deliveries .rating div .price,
+    .deliveries .rating div .price b {
+        font-size: small;
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 768px) {
+    .deliveryHistory .deliveries {
+        flex-direction: column;
+        border-radius: 5px;
+        box-shadow: 2px 2px 10px grey;
+        padding: 2%;
+        width: 75%;
+        height: 350px;
+        margin: 3% auto;
+    }
+
+    .deliveries .item,
+    .deliveries .address,
+    .deliveries .rating {
+        width: 100%;
+        height: auto;
+    }
+
+    .deliveries .item {
+        height: 150px;
+    }
+}
+
+@media (max-width: 425px) {
+    .deliveryHistory .headerM h2 {
+        font-size: medium;
+    }
+    
+    .deliveryHistory .deliveries {
+        width: 90%;
+        height: 400px;
+    }
+}
