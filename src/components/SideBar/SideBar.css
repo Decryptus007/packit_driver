@@ -32,7 +32,6 @@
 
 @media (max-width: 1024px) {
   .sideBar {
-    border-radius: 100% 10% 8% 100% / 0% 9% 11% 0% ;
     background-color: #282c34f1;
     width: 40vw;
     top: 0;

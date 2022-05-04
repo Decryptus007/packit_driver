@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate, useLocation } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,23 +10,21 @@ import { closeSideBar } from '../../../features/sideBarReducer'
 import './NavItem.css'
 
 export default function NavItem() {
-    const [clicked, setClicked] = useState('');
 
     const dispatch = useDispatch()
 
     const navigate = useNavigate()
     const location = useLocation()
 
+    const clicked = location.pathname
+
     const navigateTo = (param) => {
-        setClicked(location.pathname)
         navigate(param)
 
         if (window.matchMedia("(max-width: 768px)").matches) {
             dispatch(closeSideBar())
         }
     }
-
-    useEffect(() => {}, [clicked, location.pathname])
 
     const handleClick = (id) => {
         switch (id) {
@@ -42,19 +40,19 @@ export default function NavItem() {
                 break;
 
             case 4:
-                navigateTo('/chats')
+                navigateTo('/locationmap')
                 break;
 
             case 5:
-                navigateTo('/notification')
+                navigateTo('/chat')
                 break;
 
             case 6:
-                navigateTo('/support')
+                navigateTo('/notification')
                 break;
 
             case 7:
-                navigateTo('/settings')
+                navigateTo('/support')
                 break;
 
             case 8:
@@ -121,17 +119,24 @@ export default function NavItem() {
         <>
             {navLinks.map((navLink, id) => {
                 let address = `/${navLink.name.toLowerCase()}`
-                if (address === "/home") {
+                
+                if (address === "/home" || (clicked.slice(1, 4) === "home") ) {
                     address = "/"
                 }
-                if (address === "/live tracking") {
-                    address = "/livetracking"
+
+                if (address === "/delivery history" || (clicked.slice(1, 8) === "delivery")) {
+                    address = "/deliveryhistory"
+                }
+
+                if (address === "/withdrawal history" || (clicked.slice(1, 10) === "withdrawal")) {
+                    address = "/withdrawalhistory"
                 }
 
                 let output
+
                 if (address === clicked) {
                     output = <div style={navLink.styles}
-                        className="navLinks onFocus" key={id} onClick={navLink.directTo}>
+                        className={"navLinks onFocus" } key={id} onClick={navLink.directTo}>
                         {navLink.icon} {navLink.name}
                     </div>
                 } else {

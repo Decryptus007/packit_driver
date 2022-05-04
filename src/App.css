@@ -9,6 +9,7 @@
 html {
   scroll-behavior: smooth;
   font-family: 'Poppins', sans-serif;
+  background-color: ghostwhite;
 }
 
 ::selection {
@@ -56,20 +57,23 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 
-.transactionHistories::-webkit-scrollbar,
-.reqDelivery section main .main1::-webkit-scrollbar {
+.wHistoryHolder::-webkit-scrollbar,
+.reqDelivery section main .main1::-webkit-scrollbar,
+.supportHistory::-webkit-scrollbar {
   width: 6px;
   /* width of the entire scrollbar */
 }
 
-.transactionHistories::-webkit-scrollbar-track,
-.reqDelivery section main .main1::-webkit-scrollbar-track {
+.wHistoryHolder::-webkit-scrollbar-track,
+.reqDelivery section main .main1::-webkit-scrollbar-track,
+.supportHistory::-webkit-scrollbar-track {
   background: #282c34ce;
   border-radius: 20px;
 }
 
-.transactionHistories::-webkit-scrollbar-thumb,
-.reqDelivery section main .main1::-webkit-scrollbar-thumb {
+.wHistoryHolder::-webkit-scrollbar-thumb,
+.reqDelivery section main .main1::-webkit-scrollbar-thumb,
+.supportHistory::-webkit-scrollbar-thumb {
   background-color: #10ad5e;
   /* color of the scroll thumb */
   border-radius: 20px;

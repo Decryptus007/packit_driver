@@ -1,0 +1,60 @@
+
+@media (max-width: 425px) {
+    .supportUI {
+        margin-top: 10%;
+    }
+
+    .supportUI h2 {
+        font-size: larger;
+    }
+
+    .supportUI .supportForm {
+        flex-direction: column;
+    }
+
+    .supportUI .supportForm .reportText,
+    .supportForm .reportDoc {
+        width: 100%;
+    }
+
+    .tickets .ticketDetails h3 {
+        font-size: medium;
+        font-weight: 500;
+    }
+
+    .supportForm .reportText button {
+        width: 100%;
+    }
+
+    .tickets .ticketDetails p {
+        font-size: small;
+    }
+
+    .supportForm .reportText input {
+        width: 90%;
+        font-size: medium;
+    }
+
+    .supportForm #describeForm textarea {
+        font-size: small;
+    }
+
+    .supportForm .reportDoc {
+        margin: 5% auto;
+        width: 50%;
+    }
+
+    .supportForm .reportDoc  p {
+        font-size: small;
+        text-align: center;
+    }
+
+    .reportDoc span {
+        width: 100%;
+        text-align: center;
+    }
+
+    .reportDoc .reportAttach {
+        width: 100%;
+    }
+}

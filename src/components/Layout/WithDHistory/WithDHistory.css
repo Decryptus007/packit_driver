@@ -1,6 +1,111 @@
+.withDHistory .withdrawCard {
+    background: rgb(16, 173, 94);
+    background: linear-gradient(147deg, rgba(16, 173, 94, 1) 0%, rgba(103, 109, 221, 1) 80%);
+    width: 70%;
+    color: white;
+    height: 200px;
+    border-radius: 10px;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.withDHistory .withdrawCard p {
+    color: #6df5b1;
+}
+
+.withDHistory .withdrawCard div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.withDHistory .withdrawCard div button {
+    width: 48%;
+    font-weight: 600;
+}
+
+.withDHistory .withdrawCard div button:nth-child(1) {
+    background-color: #6df5b1;
+}
+
+.withDHistory .withdrawCard div button:hover {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.withDHistory .withdrawCard div button:nth-child(1):hover {
+    border: 1px solid #6df5b1;
+    color: #6df5b1;
+}
+
+.withDHistory .wHistoryHolder {
+    margin: 3% auto;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.withDHistory .withdrawHistory,
+.withDHistory .withdrawHistory .withdrawDetails {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.withDHistory .withdrawHistory {
+    background-color: white;
+    border-radius: 8px;
+    margin: 1% auto;
+    padding: 1% 2%;
+}
+
+.withDHistory .withdrawHistory .withdrawDetails {
+    width: 50%;
+    justify-content: flex-start;
+}
+
+.withDHistory .withdrawDetails img {
+    margin-right: 5%;
+}
+
+.withDHistory .withdrawDetails .wHead {
+    width: 100%;
+}
+
+.withDHistory .withdrawDetails .wHead h3 {
+    color: #10ad5e;
+}
+
+.withDHistory .wHead div small {
+    font-weight: 600;
+}
+
+.withDHistory .wHead div small:nth-child(1){
+    margin-right: 5%;
+}
+
 
 @media (max-width: 425px) {
     .withDHistory .headerM h2 {
         font-size: small;
+    }
+
+    .withDHistory .withdrawCard {
+        margin: auto;
+        width: 90%;
+    }
+
+    .withDHistory .withdrawHistory .withdrawDetails {
+        width: 60%;
+    }
+
+    .withDHistory .withdrawDetails .wHead h3 {
+        font-size: medium;
+    }
+
+    .withDHistory .wHead div small {
+        font-size: x-small;
     }
 }

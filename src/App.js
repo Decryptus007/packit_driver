@@ -14,6 +14,7 @@ import PageNil from './components/utils/PageNotFound/PageNotFound'
 import Home from "./components/Layout/Home/Home"
 import DeliveryHistory from "./components/Layout/DeliveryHistory/DeliveryHistory"
 import WithDHistory from "./components/Layout/WithDHistory/WithDHistory"
+import Support from "./components/Layout/Support/Support"
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -63,6 +64,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="deliveryhistory" element={<DeliveryHistory />} />
       <Route path="withdrawalhistory" element={<WithDHistory />} />
+      <Route path="support" element={<Support />} />
       <Route path="*" element={<PageNil />} />
     </Routes>
   )

@@ -55,7 +55,7 @@ export default function DeliveryHistory() {
                                 </div>
                                 <div>
                                     <small className="ratingRemark">Good Job</small>
-                                    <small className="price">Price <b style={{ color: 'red' }}>₦20000</b></small>
+                                    <small className="price">Price <b style={{ color: 'red' }}>₦2000</b></small>
                                 </div>
                             </div>
                         </div>
