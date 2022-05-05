@@ -6,6 +6,7 @@ import Layout from "../Layout"
 import HomeHeader from "../HeaderTitle/HeaderTitle"
 import OrderStats from "../OrderStats/OrderStats"
 import RecentDeliveries from "./RecentDeliveries/RecentDeliveries"
+import Modal from "../../utils/Modal/Modal"
 
 import './Home.css'
 import './HomeMobile.css'
@@ -13,8 +14,8 @@ import './HomeMobile.css'
 import reqDeliveryImg from '../../../assets/images/deliveryItem.jpg'
 
 export default function Home() {
-    // eslint-disable-next-line no-unused-vars
     const [requestAvailable, setRequestAvailable] = useState(true)
+    const [showConfirmDialog, setShowConfirmDialog] = useState(false)
 
     let noRequestStyle = {}
 
@@ -25,6 +26,42 @@ export default function Home() {
             justifyContent: 'center',
             height: '50%'
         }
+    }
+
+    const [confirmDialog, setConfirmDialog] = useState(null)
+
+    const confirmRequestFunc = (res) => {
+        let confirmMssg
+        switch (res) {
+            case 'accept':
+                confirmMssg = <Modal>
+                    <p>Do you wish to accept the request?</p>
+                    <div className='confirmBtnHolder'>
+                        <button className='confirmBtn'>Yes</button>
+                        <button className='confirmBtn' onClick={() => setShowConfirmDialog(false)}>Not Yet</button>
+                    </div>
+                </Modal>
+                break;
+            case 'decline':
+                confirmMssg = <Modal>
+                    <p>Do you wish to decline the request?</p>
+                    <div className='confirmBtnHolder'>
+                        <button className='confirmBtn' onClick={() => {
+                            setRequestAvailable(false)
+                            setShowConfirmDialog(false)
+                        }}>
+                            Yes
+                        </button>
+                        <button className='confirmBtn' onClick={() => setShowConfirmDialog(false)}>No</button>
+                    </div>
+                </Modal>
+                break;
+
+            default:
+                break;
+        }
+        setConfirmDialog(confirmMssg)
+        setShowConfirmDialog(true)
     }
 
     const requestWindow = (<>
@@ -40,9 +77,12 @@ export default function Home() {
                 <h4 style={{ color: '#10ad5e', fontWeight: '700' }}>₦{'2000'}</h4>
                 <small style={{ fontWeight: '600', fontSize: 'x-small' }}>2.3km</small>
                 <div>
-                    <button style={{ background: '#10ad5e', color: 'black' }}>Accept</button>
-                    <button onClick={() => setRequestAvailable(false)}
-style={{ background: 'red', color: 'white' }}>Decline</button>
+                    <button style={{ background: '#10ad5e', color: 'black' }}
+                        onClick={() => confirmRequestFunc('accept')}>Accept
+                    </button>
+                    <button onClick={() => confirmRequestFunc('decline')}
+                        style={{ background: 'red', color: 'white' }}>Decline
+                    </button>
                 </div>
             </div>
         </main>
@@ -50,6 +90,7 @@ style={{ background: 'red', color: 'white' }}>Decline</button>
 
     return (
         <Layout>
+            {showConfirmDialog && confirmDialog}
             <div className="home">
                 <HomeHeader currentPage="Home" />
                 <OrderStats
@@ -66,7 +107,7 @@ style={{ background: 'red', color: 'white' }}>Decline</button>
                     <div className="reqDelivery">
                         <small style={{ fontWeight: '600', paddingBottom: '2%', fontSize: 'x-small' }}>New Request</small>
                         <section style={noRequestStyle}>
-                            {requestAvailable ? requestWindow : <h2 style={{color: 'grey'}}>No Request</h2>}
+                            {requestAvailable ? requestWindow : <h2 style={{ color: 'grey' }}>No Request</h2>}
                         </section>
                     </div>
                     <div className="fundWallet">

@@ -1,12 +1,30 @@
+.withDHistory section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.withdrawAd,
 .withDHistory .withdrawCard {
-    background: rgb(16, 173, 94);
-    background: linear-gradient(147deg, rgba(16, 173, 94, 1) 0%, rgba(103, 109, 221, 1) 80%);
-    width: 70%;
+    width: 48%;
+    margin: auto;
     color: white;
     height: 200px;
     border-radius: 10px;
     padding: 2%;
+}
+
+.withdrawAd {
+    background: #10ad5e url('../../../assets/images/withdrawAd.gif');
+    background-size: cover;
+    background-position: center;
+}
+
+.withDHistory .withdrawCard {
+    background: rgb(16, 173, 94);
+    background: linear-gradient(147deg, rgba(16, 173, 94, 1) 0%, rgba(103, 109, 221, 1) 80%);
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
     justify-content: space-around;
 }
@@ -19,26 +37,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 
 .withDHistory .withdrawCard div button {
-    width: 48%;
     font-weight: 600;
-}
-
-.withDHistory .withdrawCard div button:nth-child(1) {
     background-color: #6df5b1;
 }
 
 .withDHistory .withdrawCard div button:hover {
-    background: transparent;
-    border: 1px solid white;
-    color: white;
-}
-
-.withDHistory .withdrawCard div button:nth-child(1):hover {
     border: 1px solid #6df5b1;
     color: #6df5b1;
+    background: transparent;
 }
 
 .withDHistory .wHistoryHolder {
@@ -92,8 +102,11 @@
         font-size: small;
     }
 
+    .withdrawAd {
+        display: none;
+    }
+
     .withDHistory .withdrawCard {
-        margin: auto;
         width: 90%;
     }
 

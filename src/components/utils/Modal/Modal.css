@@ -25,7 +25,7 @@
     background-color: #10ad5e;
     padding: 2rem;
     width: 50vw;
-    height: 50%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,6 +40,17 @@
 .info img {
   width: 30%;
   padding: 2rem;
+}
+
+.info input,
+.info select {
+  margin: 2% auto;
+  width: 100%;
+  border: none;
+}
+
+.info input {
+  padding: 0 2%;
 }
 
 .info button {
@@ -57,8 +68,9 @@
 @media (max-width: 425px) {
   .info {
     font-size: medium;
-    width: 75vw;
-    left: 12.5vw;
+    padding: 2%;
+    width: 90vw;
+    left: 5vw;
   }
   .info img {
     width: 50%;

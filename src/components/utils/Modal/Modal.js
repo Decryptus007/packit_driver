@@ -5,9 +5,10 @@ import './Modal.css'
 
 export default function Modal({ onClick, children }) {
 
+
     return (
         <>
-            <div className="Modal" onClick={() => onClick()}></div>
+            <div className="Modal" onClick={() => onClick && onClick()}></div>
             <div className="info">
                 <img src={logoImg} alt={logoImg} />
                 {children}
