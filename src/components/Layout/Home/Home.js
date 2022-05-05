@@ -41,7 +41,8 @@ export default function Home() {
                 <small style={{ fontWeight: '600', fontSize: 'x-small' }}>2.3km</small>
                 <div>
                     <button style={{ background: '#10ad5e', color: 'black' }}>Accept</button>
-                    <button style={{ background: 'red', color: 'white' }}>Decline</button>
+                    <button onClick={() => setRequestAvailable(false)}
+style={{ background: 'red', color: 'white' }}>Decline</button>
                 </div>
             </div>
         </main>
