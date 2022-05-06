@@ -4,7 +4,7 @@ const initialState = {
     value: true,
 }
 
-if (window.matchMedia("(max-width: 768px)").matches) {
+if (window.matchMedia("(max-width: 1024px)").matches) {
     initialState.value = false
 }
 

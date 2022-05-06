@@ -1,0 +1,37 @@
+
+@media (max-width: 768px) {
+    .notifyHeader .notifyAction {
+        width: 35%;
+    }
+}
+
+@media (max-width: 425px) {
+    .noticationUI .notifyHeader {
+        margin: 5% 0;
+    }
+
+    .notifyHeader .notifyAction {
+        width: 50%;
+    }
+
+    .notifyAction .notifyActionBtn {
+        font-size: x-small;
+        padding: 5% 3%;
+    }
+
+    .notifyMssgs {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .notifyMssg {
+        padding: 5%;
+        margin: 2% auto;
+        position: relative;
+    }
+
+    .noticationUI .notiTime {
+        font-size: x-small;
+        margin-left: 5%;
+    }
+}

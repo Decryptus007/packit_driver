@@ -17,16 +17,7 @@ export default function DeliveryHistory() {
         <Layout>
             <div className="deliveryHistory">
                 <HomeHeader currentPage="Delivery History" />
-                <OrderStats
-                    cardTitle1="Accepted"
-                    cardTitle2="Declined"
-                    cardTitle3="Rating"
-                    cardTitle4="Cancelled"
-                    cardAmount1="20"
-                    cardAmount2="5"
-                    cardAmount3="3.5"
-                    cardAmount4="3"
-                />
+                <OrderStats section="Home" />
                 <main>
                     {dummy.map((_, id) => (
                         <div className="deliveries" key={id}>

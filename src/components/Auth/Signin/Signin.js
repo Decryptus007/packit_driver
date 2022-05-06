@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { login } from '../../../features/authReducer'
+import Modal from "../../utils/Modal/Modal";
 
 import './Signin.css'
 
@@ -16,6 +17,8 @@ export default function Signin() {
     const navigate = useNavigate()
 
     const btnRef = useRef()
+
+    const [showModal, setShowModal] = useState(false)
 
     const [emailInput, setEmailInput] = useState('')
     const [pwd, setPwd] = useState('')
@@ -33,6 +36,10 @@ export default function Signin() {
 
     return (
         <div className="Signin">
+        {showModal && <Modal onClick={() => setShowModal(false)}>
+            <p>Incorrect Login Details</p>
+            <p>Contact the admin for the credentials</p>
+        </Modal> }
             <div className="signInOne">
                 <img src={nairaHand} alt="packit" />
                 <h1>Earn more while you do less</h1>
@@ -57,7 +64,13 @@ export default function Signin() {
                             placeholder="Password" type={"password"} autoComplete="true"
                         />
                     </div>
-                    <button type="submit" ref={btnRef} onClick={() => dispatch(login())}>Log In</button>
+                    <button type="submit" ref={btnRef} onClick={() => {
+                        if (emailInput === 'dom@test.com' && pwd === '12345678') {
+                            dispatch(login())
+                        } else {
+                            setShowModal(true)
+                        }
+                    }}>Log In</button>
                 </form>
                 <small onClick={() => navigate('/forgotpwd')}>Forgot Password?</small>
                 <p>You don't have an account?</p>

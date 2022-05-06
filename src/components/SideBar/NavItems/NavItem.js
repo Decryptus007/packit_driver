@@ -21,7 +21,7 @@ export default function NavItem() {
     const navigateTo = (param) => {
         navigate(param)
 
-        if (window.matchMedia("(max-width: 768px)").matches) {
+        if (window.matchMedia("(max-width: 1024px)").matches) {
             dispatch(closeSideBar())
         }
     }

@@ -69,7 +69,7 @@ export default function EditProfile() {
                     <span onClick={editNameFunc}><FontAwesomeIcon icon="fa-solid fa-pencil" /></span>
                     <p>ID: 12345678</p>
                 </div>
-                <p style={{ color: 'green' }}>Account Status: Verified</p>
+                <small style={{ color: 'green' }}>Account Status: Verified</small>
             </div>
             <div className="otherProfileinfo">
                 <h4>Personal Info</h4>

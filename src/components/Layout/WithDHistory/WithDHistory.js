@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react"
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { setAmountBalnce, setTotalWthdrw, setWthdrwHistory } from "../../../features/userUtilsReducer";
 
 import Layout from "../Layout"
 import HomeHeader from "../HeaderTitle/HeaderTitle"
@@ -15,9 +18,10 @@ import Earning from "../../../assets/images/earning.svg"
 const bankURL = 'https://raw.githubusercontent.com/Decryptus007/nigerian-banks/master/banks.json'
 
 export default function WithDHistory() {
-    const [balance, setBalance] = useState(25000)
+    const date = new Date()
 
-    const wHistoryDummy = ['Cash History', 'Earning', 'Cash History', 'Earning']
+    const wthdrwHistory = useSelector(state => state.userUtilsState.wthdrwHistory)
+
     const [showWithdrawDialog, setShowWithdrawDialog] = useState(false)
     const [successMssg, setSuccessMssg] = useState(false)
     const [banks, setBanks] = useState([{ name: 'Loading', id: '0' }])
@@ -36,10 +40,18 @@ export default function WithDHistory() {
         setAccNo('')
     }
 
+    const dispatch = useDispatch()
+
+    const balance = useSelector(state => state.userUtilsState.amountBalance)
+    const totalTransact = useSelector(state => state.userUtilsState.totalTransact)
+    const totalEarn = useSelector(state => state.userUtilsState.totalEarn)
+    const totalWthdrw = useSelector(state => state.userUtilsState.totalWthdrw)
+    const totalBonus = useSelector(state => state.userUtilsState.totalBonus)
+
     // FORM VALIDATION
     useEffect(() => {
         if (withdrawBtn.current) {
-            if ((selectBank !== '') && (selectBank !== "Error in fetching Banks") && (amount > 99) && (amount <= balance) && (accNo.toString().length === 10)) {
+            if ((selectBank !== '') && (selectBank !== "Error in fetching Banks") && (!amount.includes('.')) && (amount > 99) && (amount <= balance) && (accNo.toString().length === 10)) {
                 withdrawBtn.current.disabled = false
             } else {
                 withdrawBtn.current.disabled = true
@@ -51,7 +63,7 @@ export default function WithDHistory() {
                 setWarning(false)
             }
         }
-    }, [selectBank, amount, accNo])
+    }, [selectBank, amount, accNo, balance])
 
     useEffect(() => {
         axios.get(bankURL).then((response) => {
@@ -79,11 +91,13 @@ export default function WithDHistory() {
                 <input type={'text'} placeholder='Account Name' disabled />
                 <div className="confirmBtnHolder">
                     <button ref={withdrawBtn} className="confirmBtn" onClick={() => {
-                        setBalance(balance - amount)
+                        dispatch(setAmountBalnce(balance - amount))
+                        dispatch(setTotalWthdrw(totalWthdrw + parseInt(amount)))
+                        dispatch(setWthdrwHistory({ name: 'Withdrawal', price: amount, date: date.toLocaleDateString(), time: date.toLocaleTimeString() }))
                         setShowWithdrawDialog(false)
                         setSuccessMssg(true)
                         clearAllFunc()
-                    }} disabled={!amount}>Withdraw</button>
+                    }} disabled={!accNo}>Withdraw</button>
                     <button className="confirmBtn" onClick={() => {
                         setShowWithdrawDialog(false)
                         clearAllFunc()
@@ -106,27 +120,27 @@ export default function WithDHistory() {
                     cardTitle2="Total Earning"
                     cardTitle3="Total Withdrawal"
                     cardTitle4="Bonus Earned"
-                    cardAmount1={`₦ 200000`}
-                    cardAmount2={`₦ 178000`}
-                    cardAmount3={`₦ 120000`}
-                    cardAmount4={`₦ 5000`}
+                    cardAmount1={totalTransact}
+                    cardAmount2={totalEarn}
+                    cardAmount3={totalWthdrw}
+                    cardAmount4={totalBonus}
                 />
                 <main>
                     <section>
                         <div className="withdrawAd"></div>
                         <div className="withdrawCard">
                             <p><span><FontAwesomeIcon style={{ fontSize: 'x-large', color: 'white', marginRight: '1%' }} icon="fa-solid fa-hand-holding-dollar" /></span>Earned</p>
-                            <h1><b>{balance}.00</b></h1>
+                            <h1><b>₦{balance}.00</b></h1>
                             <div>
                                 <button onClick={() => setShowWithdrawDialog(true)}>Withdraw Earning</button>
                             </div>
                         </div>
                     </section>
                     <div className="wHistoryHolder">
-                        {wHistoryDummy.map((item, id) => {
+                        {wthdrwHistory.length !== 0 ? wthdrwHistory.map((item, id) => {
                             let imgSrc
                             let priceStyle
-                            if (item === "Cash History") {
+                            if (item.name === "Withdrawal") {
                                 imgSrc = CashWithdraw
                                 priceStyle = { color: 'red' }
                             } else {
@@ -137,16 +151,19 @@ export default function WithDHistory() {
                                 <div className="withdrawDetails">
                                     <img src={imgSrc} alt="CashWithdraw" />
                                     <div className="wHead">
-                                        <h3><b>{item}</b></h3>
+                                        <h3><b>{item.name}</b></h3>
                                         <div>
-                                            <small>23/07/2022</small>
-                                            <small>3:54pm</small>
+                                            <small>{item.date}</small>
+                                            <small>{item.time}</small>
                                         </div>
                                     </div>
                                 </div>
-                                <p style={priceStyle}><b>-₦15000</b></p>
+                                <p style={priceStyle}><b>{item.name === 'Withdrawal' && '-'}₦{item.price}</b></p>
                             </div>
-                        })}
+                        }) : <div style={{ color: 'grey' }}>
+                            <h2>No Transaction yet</h2>
+                            <p>Withdaw balance to test :)</p>
+                        </div>}
                     </div>
                 </main>
             </div>

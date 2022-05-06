@@ -14,6 +14,7 @@ import PageNil from './components/utils/PageNotFound/PageNotFound'
 import Home from "./components/Layout/Home/Home"
 import DeliveryHistory from "./components/Layout/DeliveryHistory/DeliveryHistory"
 import WithDHistory from "./components/Layout/WithDHistory/WithDHistory"
+import Notification from "./components/Layout/Notification/Notification"
 import Support from "./components/Layout/Support/Support"
 import Settings from "./components/Layout/Settings/Settings"
 import EditProfile from "./components/Layout/Settings/EditProfile/EditProfile"
@@ -69,6 +70,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="deliveryhistory" element={<DeliveryHistory />} />
       <Route path="withdrawalhistory" element={<WithDHistory />} />
+      <Route path="notification" element={<Notification />} />
       <Route path="support" element={<Support />} />
       <Route path="settings" element={<Settings />} >
         <Route path="editProfile" element={<EditProfile />} />

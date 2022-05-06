@@ -4,6 +4,7 @@ import authReducer from "../features/authReducer";
 import sideBarReducer from "../features/sideBarReducer";
 import userDetailsReducer from "../features/userDetailsReducer";
 import authModalReducer from "../features/authModalReducer";
+import userUtilsReducer from "../features/userUtilsReducer";
 
 export const store = configureStore({
     reducer: {
@@ -11,5 +12,6 @@ export const store = configureStore({
         userDetails: userDetailsReducer,
         sideBarState: sideBarReducer,
         authModalState: authModalReducer,
+        userUtilsState: userUtilsReducer,
     },
 })

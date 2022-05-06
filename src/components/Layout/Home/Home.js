@@ -1,6 +1,9 @@
 import React, { useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { setDeclined, setRequestAvailable } from "../../../features/userUtilsReducer"
 
 import Layout from "../Layout"
 import HomeHeader from "../HeaderTitle/HeaderTitle"
@@ -14,8 +17,13 @@ import './HomeMobile.css'
 import reqDeliveryImg from '../../../assets/images/deliveryItem.jpg'
 
 export default function Home() {
-    const [requestAvailable, setRequestAvailable] = useState(true)
     const [showConfirmDialog, setShowConfirmDialog] = useState(false)
+
+    const dispatch = useDispatch()
+
+    const balance = useSelector(state => state.userUtilsState.amountBalance)
+    const declined = useSelector(state => state.userUtilsState.declined)
+    const requestAvailable = useSelector(state => state.userUtilsState.requestAvailable)
 
     let noRequestStyle = {}
 
@@ -47,8 +55,9 @@ export default function Home() {
                     <p>Do you wish to decline the request?</p>
                     <div className='confirmBtnHolder'>
                         <button className='confirmBtn' onClick={() => {
-                            setRequestAvailable(false)
+                            dispatch(setRequestAvailable())
                             setShowConfirmDialog(false)
+                            dispatch(setDeclined(declined + 1))
                         }}>
                             Yes
                         </button>
@@ -93,16 +102,7 @@ export default function Home() {
             {showConfirmDialog && confirmDialog}
             <div className="home">
                 <HomeHeader currentPage="Home" />
-                <OrderStats
-                    cardTitle1="Accepted"
-                    cardTitle2="Declined"
-                    cardTitle3="Rating"
-                    cardTitle4="Cancelled"
-                    cardAmount1="20"
-                    cardAmount2="5"
-                    cardAmount3="3.5"
-                    cardAmount4="3"
-                />
+                <OrderStats section="Home" />
                 <div className="deliveryFund">
                     <div className="reqDelivery">
                         <small style={{ fontWeight: '600', paddingBottom: '2%', fontSize: 'x-small' }}>New Request</small>
@@ -112,7 +112,7 @@ export default function Home() {
                     </div>
                     <div className="fundWallet">
                         <p><FontAwesomeIcon style={{ fontSize: 'x-large', color: 'white' }} icon="fa-solid fa-hand-holding-dollar" /> Earned</p>
-                        <h1><b>25000.00</b></h1>
+                        <h1><b>₦{balance}.00</b></h1>
                         <Link className="fundBtn" to='/withdrawalhistory'>
                             <div>Withdraw Earnings</div>
                         </Link>
