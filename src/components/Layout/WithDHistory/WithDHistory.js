@@ -15,7 +15,7 @@ import Earning from "../../../assets/images/earning.svg"
 const bankURL = 'https://raw.githubusercontent.com/Decryptus007/nigerian-banks/master/banks.json'
 
 export default function WithDHistory() {
-    const balance = 25000
+    const [balance, setBalance] = useState(25000)
 
     const wHistoryDummy = ['Cash History', 'Earning', 'Cash History', 'Earning']
     const [showWithdrawDialog, setShowWithdrawDialog] = useState(false)
@@ -79,6 +79,7 @@ export default function WithDHistory() {
                 <input type={'text'} placeholder='Account Name' disabled />
                 <div className="confirmBtnHolder">
                     <button ref={withdrawBtn} className="confirmBtn" onClick={() => {
+                        setBalance(balance - amount)
                         setShowWithdrawDialog(false)
                         setSuccessMssg(true)
                         clearAllFunc()
