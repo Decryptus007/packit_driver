@@ -29,7 +29,10 @@ export default function FifthStage(props) {
         <>
             {showModal && <Modal onClick={() => null}>
                 <p>Registered Successfully</p>
-                <button onClick={() => navigate('/')}>Proceed to Login</button>
+                <button onClick={() => {
+                    navigate('/')
+                    dispatch(setSignupStage('stage1'))
+                }}>Proceed to Login</button>
             </Modal>}
             <div className="fifth">
                 <img src={props.imgFiLogo} alt="Packit" />

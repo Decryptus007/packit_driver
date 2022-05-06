@@ -105,7 +105,7 @@ export default function NavItem() {
         {
             name: 'Settings',
             icon: <FontAwesomeIcon className='icons' icon={['fas', 'gears']} />,
-            directTo: () => handleClick(7)
+            directTo: () => handleClick(8)
         },
         {
             name: 'Logout',
@@ -120,15 +120,15 @@ export default function NavItem() {
             {navLinks.map((navLink, id) => {
                 let address = `/${navLink.name.toLowerCase()}`
                 
-                if (address === "/home" || (clicked.slice(1, 4) === "home") ) {
+                if (address === "/home") {
                     address = "/"
                 }
 
-                if (address === "/delivery history" || (clicked.slice(1, 8) === "delivery")) {
+                if (address === "/delivery history") {
                     address = "/deliveryhistory"
                 }
 
-                if (address === "/withdrawal history" || (clicked.slice(1, 10) === "withdrawal")) {
+                if (address === "/withdrawal history") {
                     address = "/withdrawalhistory"
                 }
 

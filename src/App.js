@@ -15,6 +15,11 @@ import Home from "./components/Layout/Home/Home"
 import DeliveryHistory from "./components/Layout/DeliveryHistory/DeliveryHistory"
 import WithDHistory from "./components/Layout/WithDHistory/WithDHistory"
 import Support from "./components/Layout/Support/Support"
+import Settings from "./components/Layout/Settings/Settings"
+import EditProfile from "./components/Layout/Settings/EditProfile/EditProfile"
+import Security from "./components/Layout/Settings/Security/Security"
+import NotificationSettings from "./components/Layout/Settings/NotificationSettings/NotificationSettings"
+import About from "./components/Layout/Settings/About/About"
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -65,6 +70,12 @@ function App() {
       <Route path="deliveryhistory" element={<DeliveryHistory />} />
       <Route path="withdrawalhistory" element={<WithDHistory />} />
       <Route path="support" element={<Support />} />
+      <Route path="settings" element={<Settings />} >
+        <Route path="editProfile" element={<EditProfile />} />
+        <Route path="security" element={<Security />} />
+        <Route path="notificationSettings" element={<NotificationSettings />} />
+        <Route path="about" element={<About />} />
+      </Route>
       <Route path="*" element={<PageNil />} />
     </Routes>
   )

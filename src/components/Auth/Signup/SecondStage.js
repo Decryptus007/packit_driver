@@ -29,14 +29,16 @@ export default function SecondStage(props) {
     useEffect(() => {
         axios.get(baseURL).then((response) => {
             setCountries(response.data)
-        })
+        }).catch(() => { setCountries([ {name: 'Error in Fetching Countries'} ]) })
+    }, [setCountries])
 
-        if ((country !== '') && (marital !== '') && (gender !== '') && (altPhone !== '' && altPhone.length >= 8) && (address !== '' && address.length >= 5)) {
+    useEffect(() => {
+        if ((country !== '') && (country !== 'Error in Fetching Countries') && (marital !== '') && (gender !== '') && (altPhone !== '' && altPhone.length >= 8) && (address !== '' && address.length >= 5)) {
             btnRef.current.disabled = false
         } else {
             btnRef.current.disabled = true
         }
-    })
+    }, [setCountries, country, marital, gender, altPhone, address])
 
 
     return (

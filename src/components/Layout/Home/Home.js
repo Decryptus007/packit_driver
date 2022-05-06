@@ -113,7 +113,7 @@ export default function Home() {
                     <div className="fundWallet">
                         <p><FontAwesomeIcon style={{ fontSize: 'x-large', color: 'white' }} icon="fa-solid fa-hand-holding-dollar" /> Earned</p>
                         <h1><b>25000.00</b></h1>
-                        <Link className="fundBtn" to='/wallet'>
+                        <Link className="fundBtn" to='/withdrawalhistory'>
                             <div>Withdraw Earnings</div>
                         </Link>
                     </div>

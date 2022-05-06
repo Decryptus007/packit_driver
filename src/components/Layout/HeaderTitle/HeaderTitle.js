@@ -1,5 +1,6 @@
 
 import React from "react"
+import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,6 +11,9 @@ import './HeaderTitle.css'
 import './HeaderTitleMobile.css'
 
 export default function HomeHeader(props) {
+
+    const navigate = useNavigate()
+
     const dispatch = useDispatch()
 
     const profileImg = useSelector(state => state.userDetails.profilePic.imgDefault)
@@ -35,7 +39,7 @@ export default function HomeHeader(props) {
                         <h4>{fname || 'Driver'} {lname || 'Name'}</h4>
                         <p>ID: 12345678</p>
                     </div>
-                    <div className="profileImage">
+                    <div className="profileImage" onClick={() => navigate('/settings/editProfile')}>
                         <img src={profileImg} alt="profilePic" />
                     </div>
                 </div>

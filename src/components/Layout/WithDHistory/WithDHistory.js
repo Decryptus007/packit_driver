@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -15,32 +15,89 @@ import Earning from "../../../assets/images/earning.svg"
 const bankURL = 'https://raw.githubusercontent.com/Decryptus007/nigerian-banks/master/banks.json'
 
 export default function WithDHistory() {
+    const balance = 25000
+
     const wHistoryDummy = ['Cash History', 'Earning', 'Cash History', 'Earning']
     const [showWithdrawDialog, setShowWithdrawDialog] = useState(false)
-    const [banks, setBanks] = useState({ name: 'Loading', id: '0' })
+    const [successMssg, setSuccessMssg] = useState(false)
+    const [banks, setBanks] = useState([{ name: 'Loading', id: '0' }])
+
+    const withdrawBtn = useRef()
+
+    const [selectBank, setSelectBank] = useState('')
+    const [amount, setAmount] = useState('')
+    const [accNo, setAccNo] = useState('')
+
+    const [warning, setWarning] = useState(false)
+
+    const clearAllFunc = () => {
+        setSelectBank('')
+        setAmount('')
+        setAccNo('')
+    }
+
+    // FORM VALIDATION
+    useEffect(() => {
+        if (withdrawBtn.current) {
+            if ((selectBank !== '') && (selectBank !== "Error in fetching Banks") && (amount > 99) && (amount <= balance) && (accNo.toString().length === 10)) {
+                withdrawBtn.current.disabled = false
+            } else {
+                withdrawBtn.current.disabled = true
+            }
+
+            if (amount > balance) {
+                setWarning(true)
+            } else {
+                setWarning(false)
+            }
+        }
+    }, [selectBank, amount, accNo])
 
     useEffect(() => {
         axios.get(bankURL).then((response) => {
             setBanks(response.data)
-        })
-    })
+        }).catch(() => { setBanks([{ name: 'Error in fetching Banks', id: '00' }]) })
+    }, [setBanks])
 
 
     return (
         <Layout>
-            {showWithdrawDialog && <Modal onClick={() => setShowWithdrawDialog(false)}>
+            {/* THE WITHDRAW WINDOW */}
+            {showWithdrawDialog && <Modal onClick={() => null}>
                 <p>Select Bank</p>
-                <select>
+                <select value={selectBank} onChange={e => setSelectBank(e.target.value)}>
                     <option value={''}>---</option>
                     {banks.map(el => (
                         <option key={el.id} value={el.name} >{el.name}</option>
                     ))}
                 </select>
-                <input type={'number'} placeholder='Withdraw Amount' />
-                <input type={'number'} placeholder='Account Number' />
+                {warning && <small style={{ color: 'red', fontWeight: '400', fontSize: 'x-small' }}>The amount is {'>'} than the balance</small>}
+                <input value={amount} type={'number'} placeholder='Withdraw Amount'
+                    onChange={e => setAmount(e.target.value)} />
+                <input value={accNo} type={'number'} placeholder='Account Number'
+                    onChange={e => setAccNo(e.target.value)} />
                 <input type={'text'} placeholder='Account Name' disabled />
-                <button>Withdraw</button>
+                <div className="confirmBtnHolder">
+                    <button ref={withdrawBtn} className="confirmBtn" onClick={() => {
+                        setShowWithdrawDialog(false)
+                        setSuccessMssg(true)
+                        clearAllFunc()
+                    }} disabled={!amount}>Withdraw</button>
+                    <button className="confirmBtn" onClick={() => {
+                        setShowWithdrawDialog(false)
+                        clearAllFunc()
+                    }}>Cancel</button>
+                </div>
             </Modal>}
+            {/* END OF THE WITHDRAW WINDOW */}
+
+            {/* THE SUCCESS WINDOW */}
+            {successMssg && <Modal onClick={() => setSuccessMssg(false)}>
+                <FontAwesomeIcon style={{ fontSize: '300%', margin: '5% auto' }} icon="fa-solid fa-circle-check" />
+                <p>WITHDRAWAL SUCCESSFUL</p>
+            </Modal>}
+            {/*  END OF THE SUCCESS WINDOW */}
+
             <div className="withDHistory">
                 <HomeHeader currentPage="Withdrawal History" />
                 <OrderStats
@@ -58,7 +115,7 @@ export default function WithDHistory() {
                         <div className="withdrawAd"></div>
                         <div className="withdrawCard">
                             <p><span><FontAwesomeIcon style={{ fontSize: 'x-large', color: 'white', marginRight: '1%' }} icon="fa-solid fa-hand-holding-dollar" /></span>Earned</p>
-                            <h1><b>25000.00</b></h1>
+                            <h1><b>{balance}.00</b></h1>
                             <div>
                                 <button onClick={() => setShowWithdrawDialog(true)}>Withdraw Earning</button>
                             </div>

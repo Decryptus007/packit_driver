@@ -10,7 +10,9 @@ export default function Modal({ onClick, children }) {
         <>
             <div className="Modal" onClick={() => onClick && onClick()}></div>
             <div className="info">
-                <img src={logoImg} alt={logoImg} />
+                <div style={{borderBottom: '2px solid white'}}>
+                    <img style={{margin: 'auto'}} src={logoImg} alt={logoImg} />
+                </div>
                 {children}
             </div>
         </>

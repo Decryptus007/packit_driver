@@ -43,6 +43,10 @@
     font-size: 9px;
 }
 
+.profileImage {
+    cursor: pointer;
+}
+
 .profileImage img{
     width: 40px;
     height: 40px;

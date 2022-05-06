@@ -1,0 +1,119 @@
+
+.settingsLayout2 .profileSet,
+.settingsLayout2 .profilePicSet {
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 50%;
+    position: relative;
+}
+
+.settingsLayout2 .profileSet {
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
+}
+
+.settingsLayout2 .profilePicSet {
+    width: 210px;
+    height: 210px;
+}
+
+.settingsLayout2 .profilePicSet img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* .settingsLayout2 .profilePicSet:hover .overlay{
+    background: radial-gradient(circle, #ab90f77c 0%, #0808559f 64%);
+} */
+
+.profilePicSet label input{
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+.profilePicSet .setProfilePic {
+    padding: 5% 7%;
+    background-color: #10ad5e;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profileSet .profileInfo {
+    padding: 5% 1%;
+}
+
+.profileSet .profileInfo input,
+.otherData .otherInfo input {
+    background-color: inherit;
+    letter-spacing: 2px;
+    font-weight: bold;
+    width: auto;
+    font-size: large;
+    color: #10ad5e;
+    text-align: center;
+    border: none;
+}
+
+.profileSet .profileInfo input:focus,
+.otherData .otherInfo input:focus {
+    color: black;
+    outline: none;
+    border-radius: 0;
+    border-bottom: 1px solid #10ad5e;
+}
+
+.profileSet .profileInfo span {
+    color: black;
+    cursor: pointer;
+    font-size: small;
+}
+
+.profileSet .profileInfo p {
+    font-size: small;
+    letter-spacing: 1px;
+}
+
+.otherProfileinfo {
+    margin-top: 5%;
+    color: #10ad5e;
+}
+
+.otherData .otherInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3% auto;
+    padding: 3%;
+    width: 100%;
+    background-color: #cdfce4;
+    border-radius: 8px;
+}
+
+.otherData .otherInfo input {
+    width: 80%;
+    font-size: small;
+    color: black;
+    font-weight: 400;
+    text-align: left;
+}
+
+.otherData .otherInfo input:focus {
+    color: #10ad5e;
+    border-bottom: 1px solid black;
+}
+
+.otherInfo .embed1 {
+    color: black;
+}
+
+.otherInfo .embed2 {
+    cursor: pointer;
+}
