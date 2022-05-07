@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    chatValue: [],
+    chatValue: [
+        {mssg: 'Hello', style: 'reciever'},
+        { mssg: 'I am the client that requested for your service, Have you reach the drop point?', style: 'reciever' },
+    ],
 }
 
 const chatReducer = createSlice({

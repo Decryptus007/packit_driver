@@ -64,6 +64,7 @@
     padding-bottom: 4%;
 }
 
+.chatUI .convo .reciever,
 .chatUI .convo .sender {
     width: fit-content;
     max-width: 50%;
@@ -77,6 +78,13 @@
     transition: .5s;
     animation-name: popMssg;
     animation-duration: 1s;
+}
+
+.chatUI .convo .reciever {
+    background-color: #b0b0b3;
+    color: black;
+    border-radius: 20px 20px 20px 0;
+    align-self: flex-start;
 }
 
 .chatUI main section {
@@ -135,6 +143,13 @@
     padding: 2% 4%;
 }
 
+
+@media (max-width: 768px) {
+    .chatUI #dummy {
+        padding: 10% 0 !important;
+    }
+}
+
 @media (max-width: 525px) {
     .chatUI main {
         height: 70vh;
@@ -164,7 +179,8 @@
         width: 25%;
     }
 
-    .chatUI .convo .sender {
+    .chatUI .convo .sender,
+    .chatUI .convo .reciever {
         max-width: 70%;
     }
 }

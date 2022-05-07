@@ -22,10 +22,18 @@ export default function Chat() {
     const inputActive = useRef()
 
     const sendMssgFunc = (val) => {
-        dispatch(setChatValue(val))
+        dispatch(setChatValue({mssg: val, style: 'sender'}))
         setMssgVal('')
-        inView.current.scrollIntoView()
         inputActive.current.focus()
+        inView.current.scrollIntoView()
+        recieveMssg()
+    }
+
+    const recieveMssg = () => {
+        setTimeout(() => {
+            dispatch(setChatValue({mssg: 'This is a dummy message that keeps replying you :)', style: 'reciever'}))
+            inView.current.scrollIntoView()
+        }, 2000)
     }
 
     return (
@@ -48,12 +56,12 @@ export default function Chat() {
                     </div>
                     <main>
                         <div className="convo">
-                            {chatMssg.map((mssg, id) => (
-                                <div key={id} className="sender">
-                                    <small>{mssg}</small>
+                            {chatMssg.map((el, id) => (
+                                <div key={id} className={el.style}>
+                                    <small>{el.mssg}</small>
                                 </div>
                             ))}
-                            <div ref={inView}></div>
+                            <div ref={inView} id="dummy" style={{padding: '1% 0'}}></div>
                         </div>
                         <section>
                             <textarea ref={inputActive} value={mssgVal}
