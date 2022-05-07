@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { setChatValue } from "../../../features/chatReducer";
 
 import Layout from "../Layout";
 import HomeHeader from "../HeaderTitle/HeaderTitle";
@@ -9,6 +12,21 @@ import './Chat.css'
 import ClientImg from '../../../assets/images/profileImg.png'
 
 export default function Chat() {
+    const dispatch = useDispatch()
+
+    const chatMssg = useSelector(state => state.chats.chatValue)
+
+    const [mssgVal, setMssgVal] = useState('')
+
+    const inView = useRef()
+    const inputActive = useRef()
+
+    const sendMssgFunc = (val) => {
+        dispatch(setChatValue(val))
+        setMssgVal('')
+        inView.current.scrollIntoView()
+        inputActive.current.focus()
+    }
 
     return (
         <Layout>
@@ -29,8 +47,18 @@ export default function Chat() {
                         </div>
                     </div>
                     <main>
+                        <div className="convo">
+                            {chatMssg.map((mssg, id) => (
+                                <div key={id} className="sender">
+                                    <small>{mssg}</small>
+                                </div>
+                            ))}
+                            <div ref={inView}></div>
+                        </div>
                         <section>
-                            <textarea placeholder='Type your message' ></textarea>
+                            <textarea ref={inputActive} value={mssgVal}
+                                onChange={(e) => setMssgVal(e.target.value)} placeholder='Type your message'>
+                            </textarea>
                             <div className="chatMedia">
                                 <label>
                                     <input type={'file'} />
@@ -40,7 +68,7 @@ export default function Chat() {
                                     <input type={'file'} accept="image/*" />
                                     <FontAwesomeIcon className="clientStatus" icon="fa-solid fa-image" />
                                 </label>
-                                <button>
+                                <button onClick={() => sendMssgFunc(mssgVal)}>
                                     <FontAwesomeIcon className="clientStatus" icon="fa-solid fa-paper-plane" />
                                 </button>
                             </div>

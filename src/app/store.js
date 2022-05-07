@@ -5,6 +5,7 @@ import sideBarReducer from "../features/sideBarReducer";
 import userDetailsReducer from "../features/userDetailsReducer";
 import authModalReducer from "../features/authModalReducer";
 import userUtilsReducer from "../features/userUtilsReducer";
+import chatReducer from "../features/chatReducer";
 
 export const store = configureStore({
     reducer: {
@@ -13,5 +14,6 @@ export const store = configureStore({
         sideBarState: sideBarReducer,
         authModalState: authModalReducer,
         userUtilsState: userUtilsReducer,
+        chats: chatReducer
     },
 })

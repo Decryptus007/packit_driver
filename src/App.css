@@ -57,6 +57,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 
+*::-webkit-scrollbar,
 .wHistoryHolder::-webkit-scrollbar,
 .reqDelivery section main .main1::-webkit-scrollbar,
 .supportHistory::-webkit-scrollbar {
@@ -64,6 +65,7 @@ body::-webkit-scrollbar-thumb {
   /* width of the entire scrollbar */
 }
 
+*::-webkit-scrollbar-track,
 .wHistoryHolder::-webkit-scrollbar-track,
 .reqDelivery section main .main1::-webkit-scrollbar-track,
 .supportHistory::-webkit-scrollbar-track {
@@ -71,6 +73,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;
 }
 
+*::-webkit-scrollbar-thumb,
 .wHistoryHolder::-webkit-scrollbar-thumb,
 .reqDelivery section main .main1::-webkit-scrollbar-thumb,
 .supportHistory::-webkit-scrollbar-thumb {
