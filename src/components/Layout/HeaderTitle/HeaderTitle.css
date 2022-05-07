@@ -14,6 +14,7 @@
 }
 .headerM svg {
     display: none;
+    font-size: large;
 }
 .homeHeaderMenu {
     width: 25%;

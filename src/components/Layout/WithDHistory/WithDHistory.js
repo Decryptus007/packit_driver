@@ -1,117 +1,65 @@
-import React, { useEffect, useRef, useState } from "react"
-import axios from "axios";
-import { useSelector, useDispatch } from "react-redux"
+import React, { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import { setAmountBalnce, setTotalWthdrw, setWthdrwHistory } from "../../../features/userUtilsReducer";
 
 import Layout from "../Layout"
 import HomeHeader from "../HeaderTitle/HeaderTitle"
 import OrderStats from "../OrderStats/OrderStats"
-import Modal from "../../utils/Modal/Modal"
+import { WithdrawWindow, ConfirmWindow, SuccessWindow } from "./WithDialog/WithDialog"
 
 import './WithDHistory.css'
 
 import CashWithdraw from "../../../assets/images/cash withdraw.svg"
 import Earning from "../../../assets/images/earning.svg"
 
-const bankURL = 'https://raw.githubusercontent.com/Decryptus007/nigerian-banks/master/banks.json'
 
 export default function WithDHistory() {
-    const date = new Date()
 
-    const wthdrwHistory = useSelector(state => state.userUtilsState.wthdrwHistory)
-
-    const [showWithdrawDialog, setShowWithdrawDialog] = useState(false)
-    const [successMssg, setSuccessMssg] = useState(false)
-    const [banks, setBanks] = useState([{ name: 'Loading', id: '0' }])
-
-    const withdrawBtn = useRef()
-
-    const [selectBank, setSelectBank] = useState('')
-    const [amount, setAmount] = useState('')
-    const [accNo, setAccNo] = useState('')
-
-    const [warning, setWarning] = useState(false)
-
-    const clearAllFunc = () => {
-        setSelectBank('')
-        setAmount('')
-        setAccNo('')
-    }
-
-    const dispatch = useDispatch()
-
-    const balance = useSelector(state => state.userUtilsState.amountBalance)
     const totalTransact = useSelector(state => state.userUtilsState.totalTransact)
     const totalEarn = useSelector(state => state.userUtilsState.totalEarn)
     const totalWthdrw = useSelector(state => state.userUtilsState.totalWthdrw)
     const totalBonus = useSelector(state => state.userUtilsState.totalBonus)
 
+    const balance = useSelector(state => state.userUtilsState.amountBalance)
+    const wthdrwHistory = useSelector(state => state.userUtilsState.wthdrwHistory)
+
+    const [showWithdrawDialog, setShowWithdrawDialog] = useState(false)
+    const [showConfirm, setShowConfirm] = useState(false)
+    const [successMssg, setSuccessMssg] = useState(false)
+
+    const [selectBank, setSelectBank] = useState('')
+    const [amount, setAmount] = useState('')
+    const [accNo, setAccNo] = useState('')
+    const [btnValidate, setBtnValidate] = useState(true)
+
     // FORM VALIDATION
     useEffect(() => {
-        if (withdrawBtn.current) {
-            if ((selectBank !== '') && (selectBank !== "Error in fetching Banks") && (!amount.includes('.')) && (amount > 99) && (amount <= balance) && (accNo.toString().length === 10)) {
-                withdrawBtn.current.disabled = false
-            } else {
-                withdrawBtn.current.disabled = true
-            }
-
-            if (amount > balance) {
-                setWarning(true)
-            } else {
-                setWarning(false)
-            }
+        if ((selectBank !== '') && (selectBank !== "Error in fetching Banks") && (!amount.includes('.')) && (amount > 99) && (amount <= balance) && (accNo.toString().length === 10)) {
+            setBtnValidate(false)
+        } else {
+            setBtnValidate(true)
         }
-    }, [selectBank, amount, accNo, balance])
-
-    useEffect(() => {
-        axios.get(bankURL).then((response) => {
-            setBanks(response.data)
-        }).catch(() => { setBanks([{ name: 'Error in fetching Banks', id: '00' }]) })
-    }, [setBanks])
+    }, [selectBank, amount, balance, accNo])
 
 
     return (
         <Layout>
-            {/* THE WITHDRAW WINDOW */}
-            {showWithdrawDialog && <Modal onClick={() => null}>
-                <p>Select Bank</p>
-                <select value={selectBank} onChange={e => setSelectBank(e.target.value)}>
-                    <option value={''}>---</option>
-                    {banks.map(el => (
-                        <option key={el.id} value={el.name} >{el.name}</option>
-                    ))}
-                </select>
-                {warning && <small style={{ color: 'red', fontWeight: '400', fontSize: 'x-small' }}>The amount is {'>'} than the balance</small>}
-                <input value={amount} type={'number'} placeholder='Withdraw Amount'
-                    onChange={e => setAmount(e.target.value)} />
-                <input value={accNo} type={'number'} placeholder='Account Number'
-                    onChange={e => setAccNo(e.target.value)} />
-                <input type={'text'} placeholder='Account Name' disabled />
-                <div className="confirmBtnHolder">
-                    <button ref={withdrawBtn} className="confirmBtn" onClick={() => {
-                        dispatch(setAmountBalnce(balance - amount))
-                        dispatch(setTotalWthdrw(totalWthdrw + parseInt(amount)))
-                        dispatch(setWthdrwHistory({ name: 'Withdrawal', price: amount, date: date.toLocaleDateString(), time: date.toLocaleTimeString() }))
-                        setShowWithdrawDialog(false)
-                        setSuccessMssg(true)
-                        clearAllFunc()
-                    }} disabled={!accNo}>Withdraw</button>
-                    <button className="confirmBtn" onClick={() => {
-                        setShowWithdrawDialog(false)
-                        clearAllFunc()
-                    }}>Cancel</button>
-                </div>
-            </Modal>}
-            {/* END OF THE WITHDRAW WINDOW */}
-
-            {/* THE SUCCESS WINDOW */}
-            {successMssg && <Modal onClick={() => setSuccessMssg(false)}>
-                <FontAwesomeIcon style={{ fontSize: '300%', margin: '5% auto' }} icon="fa-solid fa-circle-check" />
-                <p>WITHDRAWAL SUCCESSFUL</p>
-            </Modal>}
-            {/*  END OF THE SUCCESS WINDOW */}
+            {showWithdrawDialog && <WithdrawWindow
+                balance={balance} btnValidate={btnValidate}
+                showConfirm={() => setShowConfirm(true)}
+                closeWithdraw={() => setShowWithdrawDialog(false)}
+                bank={selectBank} changeBank={(val) => setSelectBank(val)}
+                amount={amount} changeAmount={(val) => setAmount(val)}
+                accNo={accNo} changeAccNo={(val) => setAccNo(val)}
+            />}
+            {showConfirm && <ConfirmWindow
+                balanceConfirm={balance} changeAccNo={(val) => setAccNo(val)}
+                amountConfirm={amount} changeAmount={(val) => setAmount(val)}
+                totalWthdrw={totalWthdrw} changeBank={(val) => setSelectBank(val)}
+                closeConfirm={() => setShowConfirm(false)}
+                showSuccess={() => setSuccessMssg(true)}
+            />}
+            {successMssg && <SuccessWindow closeSuccess={() => setSuccessMssg(false)} />}
 
             <div className="withDHistory">
                 <HomeHeader currentPage="Withdrawal History" />
