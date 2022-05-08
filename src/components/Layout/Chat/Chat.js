@@ -22,6 +22,7 @@ export default function Chat() {
     const inputActive = useRef()
 
     const sendMssgFunc = (val) => {
+        if(!val) return
         dispatch(setChatValue({mssg: val, style: 'sender'}))
         setMssgVal('')
         inputActive.current.focus()
