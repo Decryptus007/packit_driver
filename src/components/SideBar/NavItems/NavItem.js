@@ -132,6 +132,10 @@ export default function NavItem() {
                     address = "/withdrawalhistory"
                 }
 
+                if (address === '/location map') {
+                    address = '/locationmap'
+                }
+
                 let output
 
                 if (address === clicked) {
