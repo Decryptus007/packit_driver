@@ -83,11 +83,19 @@
     color: white;
     background-color: transparent;
     font-weight: 600;
+    width: 45%;
 }
 
 .signInTwo form button:hover {
     background-color: white;
     color: #10ad5e;
+}
+
+.loginBtnCtrl {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .signInTwo small {

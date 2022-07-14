@@ -36,10 +36,10 @@ export default function Signin() {
 
     return (
         <div className="Signin">
-        {showModal && <Modal onClick={() => setShowModal(false)}>
-            <p>Incorrect Login Details</p>
-            <p>Contact the admin for the credentials</p>
-        </Modal> }
+            {showModal && <Modal onClick={() => setShowModal(false)}>
+                <p>Incorrect Login Details</p>
+                <p>Contact the admin for the credentials</p>
+            </Modal>}
             <div className="signInOne">
                 <img src={nairaHand} alt="packit" />
                 <h1>Earn more while you do less</h1>
@@ -64,13 +64,19 @@ export default function Signin() {
                             placeholder="Password" type={"password"} autoComplete="true"
                         />
                     </div>
-                    <button type="submit" ref={btnRef} onClick={() => {
-                        if (emailInput === 'dom@test.com' && pwd === '12345678') {
-                            dispatch(login())
-                        } else {
-                            setShowModal(true)
-                        }
-                    }}>Log In</button>
+                    <div className="loginBtnCtrl">
+                        <button type="submit" ref={btnRef} onClick={() => {
+                            if (emailInput === 'dom@test.com' && pwd === '12345678') {
+                                dispatch(login())
+                            } else {
+                                setShowModal(true)
+                            }
+                        }}>Log In</button>
+                        <button onClick={() => {
+                            setEmailInput('dom@test.com')
+                            setPwd('12345678')
+                        }}>Tap to Auto-Fill</button>
+                    </div>
                 </form>
                 <small onClick={() => navigate('/forgotpwd')}>Forgot Password?</small>
                 <p>You don't have an account?</p>
