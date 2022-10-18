@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -128,4 +133,61 @@ textarea {
   border-radius: 10px;
   caret-color: #10ad5e;
   font-size: medium;
+}
+
+
+#header {
+  background: linear-gradient(to right, #000000ab 60%, black 25%), url(./assets/images/templates/Truck-landing.jpg) no-repeat center center/cover;
+}
+
+.line::after {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 30%;
+  height: 5px;
+  background: rgb(163, 160, 160);
+  display: block;
+}
+
+.dot::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: inherit;
+  height: inherit;
+  background: rgb(67, 129, 223);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/*
+
+.footer-cont {
+  @apply flex flex-col items-center justify-center p-4 pb-0 mt-5 h-auto gap-x-4 gap-y-2 md: p-8 md:flex-row
+}
+
+.footer-header {
+  @apply tracking-wide text-gray-700 text-lg font-bold
+}
+
+.footer-text {
+  @apply block font-bold text-sm text-gray-500
+}
+
+.footer-link {
+  @apply font-bold text-base text-gray-600
+} */
+
+
+@media (max-width: 768px) {
+  #header {
+    background: linear-gradient(to bottom, #000000b0 60%, #000000b0 40%), url(./assets/images/templates/Truck-landing.jpg) no-repeat center center/cover;
+  }
+
+  .up {
+    display: block;
+  }
 }

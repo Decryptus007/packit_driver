@@ -3,6 +3,7 @@ import { Route, Routes, useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 
 //FALSY ROUTES
+import IndexHome from "./components/IndexHome/IndexHome"
 import Signin from './components/Auth/Signin/Signin'
 import ForgotPwd from "./components/Auth/Signin/ForgotPwd/ForgotPwd"
 import Verification from "./components/Auth/Verification/Verification"
@@ -54,7 +55,8 @@ function App() {
 
   const loggedOutRoutes = (
     <Routes>
-      <Route path="/" element={<Signin />} />
+      <Route path="/" element={<IndexHome />} />
+      <Route path="/login" element={<Signin />} />
       <Route path="forgotpwd" element={<ForgotPwd
         fgEmail={fgEmail}
         setFgEmail={e => setFgEmail(e)}

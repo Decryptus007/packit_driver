@@ -21,11 +21,11 @@ export default function OrderStats(props) {
         ratingIcon = true
     }
 
-    <div style={cardStyle} id="cancelStat" className="orderStat">
-        {ratingIcon && <FontAwesomeIcon style={ratingIconStyle} icon="fa-solid fa-ban" />}
-        <h3>{props.cardTitle4}</h3>
-        <h1 style={amountStyle}>{props.cardAmount4}</h1>
-    </div>
+    // <div style={cardStyle} id="cancelStat" className="orderStat">
+    //     {ratingIcon && <FontAwesomeIcon style={ratingIconStyle} icon="fa-solid fa-ban" />}
+    //     <h3>{props.cardTitle4}</h3>
+    //     <h1 style={amountStyle}>{props.cardAmount4}</h1>
+    // </div>
     return (
         <div className="orderStats">
             <div style={cardStyle} id="activeStat" className="orderStat">
